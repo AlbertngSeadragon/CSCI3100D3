@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
-//const AutoIncrement = require('mongoose-sequence')(mongoose);
-//const bcrypt = require('bcrypt');
+const AutoIncrement = require('mongoose-sequence')(mongoose);
+const bcrypt = require('bcrypt');
 const SALT_WORK_FACTOR = 10;
 const Schema = mongoose.Schema;
 
 
-const StudentSchema = new Schema({
+const AdminSchema = new Schema({
     first_name: {
         type: String,
         required: true
@@ -17,10 +17,6 @@ const StudentSchema = new Schema({
     sex: {
         type: String,
         enum: ['M', 'F', 'N/A'],
-        required: true
-    },
-    year_of_study: {
-        type: Number,
         required: true
     },
     birth_date: {
@@ -35,35 +31,31 @@ const StudentSchema = new Schema({
         type: String,
         required: true
     },
-    major: {
-        type: String,
-        required: true
-    },
     phone: {
         type: String,
         required: true
     }
 });
-/*StudentSchema.plugin(AutoIncrement, {inc_field: 'id'});
+AdminSchema.plugin(AutoIncrement, {inc_field: 'id'});
 
-StudentSchema.pre('save', function(next) {
-    var student = this;
-    if (!student.isModified('password')) return next();
+AdminSchema.pre('save', function(next) {
+    var admin = this;
+    if (!admin.isModified('password')) return next();
     bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt) {
         if (err) return next(err);
-        bcrypt.hash(student.password, salt, function(err, hash) {
+        bcrypt.hash(admin.password, salt, function(err, hash) {
             if (err) return next(err);
-            student.password = hash;
+            admin.password = hash;
             next();
         });
     });
 });
-     
-StudentSchema.methods.comparePassword = function(candidatePassword, cb) {
+
+AdminSchema.methods.comparePassword = function(candidatePassword, cb) {
     bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
         if (err) return cb(err);
         cb(null, isMatch);
     });
 };
-*/
-module.exports = Student = mongoose.model('students', StudentSchema);
+
+module.exports = Admin = mongoose.model('admins', AdminSchema);
