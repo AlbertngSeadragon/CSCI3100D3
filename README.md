@@ -78,4 +78,10 @@ wave_progress_widget
 best_flutter_ui_templates
 
 ## Reference
+**Mobile:**
+Best Flutter UI completely free for everyone. https://awesomeopensource.com/project/mitesh77/Best-Flutter-UI-Templates Follow this ui tutorial to do modifcation.
+
+Flutter TTS can the idea on how to use the library https://medium.com/flutterdevs/flutter-text-to-speech-3ed66ebec523
+
+Dialogflow Document https://cloud.google.com/dialogflow/docs
 
