@@ -2,6 +2,12 @@
 
 You can use mobile app and web app as you like.
 
+Preview:
+Web:
+
+Mobile:
+
+
 ## Web app
 
 StackEdit stores your files in your browser, which means all your files are automatically saved locally and are accessible **offline!**
@@ -79,6 +85,7 @@ best_flutter_ui_templates
 
 ## Reference
 **Mobile:**
+
 Best Flutter UI completely free for everyone. https://awesomeopensource.com/project/mitesh77/Best-Flutter-UI-Templates Follow this ui tutorial to do modifcation.
 
 Flutter TTS can the idea on how to use the library https://medium.com/flutterdevs/flutter-text-to-speech-3ed66ebec523
