@@ -2,11 +2,23 @@
 
 You can use mobile app and web app as you like.
 
-Preview:
+## Preview:
+
 Web:
 
 Mobile:
 
+![image](https://github.com/AlbertngSeadragon/CSCI3100D3/blob/main/Mobile%20Home%20Page.png)
+
+![image](https://github.com/AlbertngSeadragon/CSCI3100D3/blob/main/Mobile%20Icon.png)
+
+![image](https://github.com/AlbertngSeadragon/CSCI3100D3/blob/main/Simulator%20Screen%20Shot%20-%20iPhone%2012%20Pro%20Max%20-%202021-03-18%20at%2016.37.53.png)
+
+![image](https://github.com/AlbertngSeadragon/CSCI3100D3/blob/main/Simulator%20Screen%20Shot%20-%20iPhone%2012%20Pro%20Max%20-%202021-03-18%20at%2016.38.03.png)
+
+![image](https://github.com/AlbertngSeadragon/CSCI3100D3/blob/main/Simulator%20Screen%20Shot%20-%20iPhone%2012%20Pro%20Max%20-%202021-03-18%20at%2016.38.10.png)
+
+![image](https://github.com/AlbertngSeadragon/CSCI3100D3/blob/main/Simulator%20Screen%20Shot%20-%20iPhone%2012%20Pro%20Max%20-%202021-03-18%20at%2016.38.33.png)
 
 ## Web app
 
