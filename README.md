@@ -8,6 +8,8 @@ Web:
 
 Mobile:
 
+<img src="https://github.com/AlbertngSeadragon/CSCI3100D3/blob/main/Mobile%20Home%20Page.png" width="100" height="100">
+
 ![image](https://github.com/AlbertngSeadragon/CSCI3100D3/blob/main/Mobile%20Home%20Page.png =250x250)
 
 ![image](https://github.com/AlbertngSeadragon/CSCI3100D3/blob/main/Mobile%20Icon.png =250x250)
