@@ -8,19 +8,17 @@ Web:
 
 Mobile:
 
-<img src="https://github.com/AlbertngSeadragon/CSCI3100D3/blob/main/Mobile%20Home%20Page.png" width="100" height="100">
+<img src="https://github.com/AlbertngSeadragon/CSCI3100D3/blob/main/Mobile%20Home%20Page.png" width="250" height="500">
 
-![image](https://github.com/AlbertngSeadragon/CSCI3100D3/blob/main/Mobile%20Home%20Page.png =250x250)
+<img src="https://github.com/AlbertngSeadragon/CSCI3100D3/blob/main/Mobile%20Icon.png" width="250" height="250">
 
-![image](https://github.com/AlbertngSeadragon/CSCI3100D3/blob/main/Mobile%20Icon.png =250x250)
+<img src="https://github.com/AlbertngSeadragon/CSCI3100D3/blob/main/Simulator%20Screen%20Shot%20-%20iPhone%2012%20Pro%20Max%20-%202021-03-18%20at%2016.37.53.png" width="250" height="500">
 
-![image](https://github.com/AlbertngSeadragon/CSCI3100D3/blob/main/Simulator%20Screen%20Shot%20-%20iPhone%2012%20Pro%20Max%20-%202021-03-18%20at%2016.37.53.png =250x250)
+<img src="https://github.com/AlbertngSeadragon/CSCI3100D3/blob/main/Simulator%20Screen%20Shot%20-%20iPhone%2012%20Pro%20Max%20-%202021-03-18%20at%2016.38.03.png " width="250" height="500">
 
-![image](https://github.com/AlbertngSeadragon/CSCI3100D3/blob/main/Simulator%20Screen%20Shot%20-%20iPhone%2012%20Pro%20Max%20-%202021-03-18%20at%2016.38.03.png =250x250)
+<img src="https://github.com/AlbertngSeadragon/CSCI3100D3/blob/main/Simulator%20Screen%20Shot%20-%20iPhone%2012%20Pro%20Max%20-%202021-03-18%20at%2016.38.10.png" width="250" height="500">
 
-![image](https://github.com/AlbertngSeadragon/CSCI3100D3/blob/main/Simulator%20Screen%20Shot%20-%20iPhone%2012%20Pro%20Max%20-%202021-03-18%20at%2016.38.10.png =250x250)
-
-![image](https://github.com/AlbertngSeadragon/CSCI3100D3/blob/main/Simulator%20Screen%20Shot%20-%20iPhone%2012%20Pro%20Max%20-%202021-03-18%20at%2016.38.33.png =250x250)
+<img src="https://github.com/AlbertngSeadragon/CSCI3100D3/blob/main/Simulator%20Screen%20Shot%20-%20iPhone%2012%20Pro%20Max%20-%202021-03-18%20at%2016.38.33.png " width="250" height="500">
 
 ## Web app
 
@@ -105,4 +103,3 @@ Best Flutter UI completely free for everyone. https://awesomeopensource.com/proj
 Flutter TTS can the idea on how to use the library https://medium.com/flutterdevs/flutter-text-to-speech-3ed66ebec523
 
 Dialogflow Document https://cloud.google.com/dialogflow/docs
-
