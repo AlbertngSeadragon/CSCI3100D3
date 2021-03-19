@@ -27,13 +27,13 @@ The file explorer is accessible using the button in left corner of the navigatio
 
 ### Backend
 
-## Installation
+#### Installation
 
 Run the following command within **backend/** directory
 
     npm install
 
-## Usage
+#### Usage
 
 Run the following command to start the server
 
