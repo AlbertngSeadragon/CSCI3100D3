@@ -20,7 +20,7 @@ module.exports = function validateAdminLoginInput(data){
     }
 
     if(!Validator.isLength(data.password, {min: 8, max: 30})){
-        errors.password = 'Password must be between 6 and 30 characters';
+        errors.password = 'Password must be between 8 and 30 characters';
     }
     
     return {

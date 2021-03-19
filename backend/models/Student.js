@@ -3,11 +3,7 @@ const Schema = mongoose.Schema;
 
 
 const StudentSchema = new Schema({
-    first_name: {
-        type: String,
-        required: true
-    },
-    last_name: {
+    name: {
         type: String,
         required: true
     },
@@ -16,14 +12,18 @@ const StudentSchema = new Schema({
         enum: ['M', 'F', 'N/A'],
         required: true
     },
-    year_of_study: {
+    role: {
+        type: String,
+        default: "student"
+    },
+    yearOfStudy: {
         type: String,
         enum: ["Year 1", "Year 2", "Year 3", "Year 4"],
         required: true
     },
-    birth_date: {
+    createTime: {
         type: Date,
-        required: true
+        default: Date.now
     },
     studentID: {
         type: String,
@@ -32,7 +32,8 @@ const StudentSchema = new Schema({
     },
     email: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     password: {
         type: String,
