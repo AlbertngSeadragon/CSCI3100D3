@@ -52,18 +52,11 @@ router.post('/register', (req, res) => {
 
 // POST /api/students/login
 // login the student 
-router.post('/login', (req, res) => {
-        const {errors, isValid} = validateAdminLoginInput(req.body);
-        if(!isValid){
-            return res.status(400).json(errors);
-        }else{
-            passport.authenticate('local'), (req, res) => {
-                res.json({success: true});
-            }
-        }
-            
-    }
-);
+router.post('/login',
+        passport.authenticate('studentLocal', { 
+            successRedirect: '/api/students',
+            failureRedirect: '/api/students/register'
+    }));
 // GET /api/students/logout
 router.get('/logout', (req, res) => {
     req.logout();
@@ -72,11 +65,7 @@ router.get('/logout', (req, res) => {
 // GET /api/students/
 router.get('/', (req, res) => {
     if(req.user){
-        res.json({
-            first_name: req.user.first_name,
-            last_name: req.user.last_name,
-            email: req.user.email
-        });
+        res.send(req.user);
     }else{
         res.send('no logged in student')
     }

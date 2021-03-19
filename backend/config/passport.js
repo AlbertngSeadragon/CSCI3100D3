@@ -1,7 +1,6 @@
 const JwtStrategy = require('passport-jwt').Strategy;
 const ExtractJwt = require('passport-jwt').ExtractJwt;
-const passport = require('passport'), 
-    LocalStrategy = require('passport-local').Strategy;
+const LocalStrategy = require('passport-local').Strategy;
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const Admin = mongoose.model('admins');
@@ -39,7 +38,6 @@ module.exports = (passport) => {
             }
             bcrypt.compare(password, student.password)
                 .then((isMatch) => {
-                    console.log(`ismatch = ${isMatch}`)
                     if(isMatch){
                         return done(null, student);
                     }
