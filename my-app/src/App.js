@@ -6,7 +6,8 @@ import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import About from './components/About';
 import Signup from './components/signup';
-import Event from './components/Events'
+import Event from './components/Events';
+import CreateEvent from './components/CreateEvent';
 
 class App extends Component {
   render(){  
@@ -18,6 +19,7 @@ class App extends Component {
             <Route path="/About" exact component={About} />
             <Route path="/signup" exact component={Signup} />
             <Route path="/Events" exact component={Event} />
+            <Route path="/CreateEvent" exact component={CreateEvent} />
             <PrivateRoute path="/Profile" exact component={Profile}/>
           </Switch>  
         </div>
