@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Student = require('./Student');
-
 const Schema = mongoose.Schema;
+
 const AutoIncrement = require('mongoose-sequence')(mongoose);
 const EventSchema = new Schema({
     creator: {
@@ -23,7 +23,8 @@ const EventSchema = new Schema({
         required: true
     },
     rating: {
-        type: Number
+        type: Number,
+        default: undefined
     },
     quota: {
         type: Number,
@@ -43,7 +44,8 @@ const EventSchema = new Schema({
         required: true
     },
     description: {
-        type: String
+        type: String,
+        default: ""
     },
     image: {
         data: Buffer,
@@ -51,20 +53,20 @@ const EventSchema = new Schema({
     },
     comments: [
         {
-            user: {
+            commenterID: {
                 type: Schema.Types.ObjectId,
-                refPath: 'onModel'
+                refPath: 'senderModel'
             },
-            onModel: {
+            commenterModel: {
                 type: String,
                 required: true,
                 enum: ['students', 'admins', 'staff']
             },
-            text: {
+            commentText: {
                 type: String,
                 required: true
             },
-            name: {
+            commenterName: {
                 type: String
             },
             date:{
@@ -73,9 +75,30 @@ const EventSchema = new Schema({
             }
         }
     ],
-    chatroom: {
-
-    },
+    chatroom: [
+        {
+            messagerID: {
+                type: Schema.Types.ObjectId,
+                refPath: 'senderModel'
+            },
+            messagerModel: {
+                type: String,
+                required: true,
+                enum: ['students', 'admins', 'staff']
+            },
+            message: {
+                type: String,
+                required: true
+            },
+            messagerName: {
+                type: String
+            },
+            date:{
+                type: Date,
+                default: Date.now
+            }            
+        }
+    ],
     date: {
         type: Date,
         default: Date.now

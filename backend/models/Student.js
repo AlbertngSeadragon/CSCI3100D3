@@ -1,6 +1,4 @@
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
-const SALT_WORK_FACTOR = 10;
 const Schema = mongoose.Schema;
 
 
@@ -19,7 +17,8 @@ const StudentSchema = new Schema({
         required: true
     },
     year_of_study: {
-        type: Number,
+        type: String,
+        enum: ["Year 1", "Year 2", "Year 3", "Year 4"],
         required: true
     },
     birth_date: {
@@ -27,7 +26,7 @@ const StudentSchema = new Schema({
         required: true
     },
     studentID: {
-        type: Number,
+        type: String,
         required: true,
         unique: true
     },
@@ -49,24 +48,5 @@ const StudentSchema = new Schema({
     }
 });
 
-StudentSchema.pre('save', function(next) {
-    var student = this;
-    if (!student.isModified('password')) return next();
-    bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt) {
-        if (err) return next(err);
-        bcrypt.hash(student.password, salt, function(err, hash) {
-            if (err) return next(err);
-            student.password = hash;
-            next();
-        });
-    });
-});
-
-StudentSchema.methods.comparePassword = function(candidatePassword, cb) {
-    bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
-        if (err) return cb(err);
-        cb(null, isMatch);
-    });
-};
 
 module.exports = Student = mongoose.model('students', StudentSchema);
