@@ -3,11 +3,7 @@ const Schema = mongoose.Schema;
 
 
 const StaffSchema = new Schema({
-    first_name: {
-        type: String,
-        required: true
-    },
-    last_name: {
+    name: {
         type: String,
         required: true
     },
@@ -16,18 +12,19 @@ const StaffSchema = new Schema({
         enum: ['M', 'F', 'N/A'],
         required: true
     },
-    birth_date: {
+    createTime: {
         type: Date,
-        required: true
+        default: Date.now
     },
     staffID: {
-        type: Number,
+        type: String,
         required: true,
         unique: true
     },
     email: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     password: {
         type: String,

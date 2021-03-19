@@ -28,10 +28,8 @@ router.post('/register', passport.authenticate('adminJWT', {session: false}), (r
             }
             else{
                 const newAdmin = new Admin({
-                    first_name: req.body.first_name,
-                    last_name: req.body.last_name,
+                    name: req.body.name,
                     sex: req.body.sex,
-                    birth_date: req.body.birth_date,
                     phone: req.body.phone,
                     email: req.body.email,
                     password: req.body.password
@@ -43,19 +41,7 @@ router.post('/register', passport.authenticate('adminJWT', {session: false}), (r
                         newAdmin.password = hash;
                         newAdmin
                             .save()
-                            .then(admin => {
-                                const payload = {id: admin.id, first_name: admin.first_name, last_name: admin.last_name};
-                                jwt.sign(
-                                    payload,
-                                    keys.secretOrKey,
-                                    {expiresIn: 3600},
-                                    (err, token) => {
-                                        res.json({
-                                            success: true,
-                                            token: 'Bearer ' + token
-                                        });
-                                });
-                            })
+                            .then(res.json({success: true}))
                             .catch(err => console.log(err));
                     });
                 });
@@ -83,7 +69,7 @@ router.post('/login', (req, res) => {
             bcrypt.compare(password, admin.password)
                 .then(isMatch => {
                     if(isMatch){
-                        const payload = {id: admin.id, first_name: admin.first_name, last_name: admin.last_name};
+                        const payload = {id: admin.id, name: admin.name};
                         jwt.sign(
                             payload,
                             keys.secretOrKey,
@@ -105,25 +91,56 @@ router.post('/login', (req, res) => {
 
 
 
-// // GET /api/users/<:user_id>
-// router.get('/:id', (req, res) => {
-//     User.findById(req.params.id)
-//         .then(user => res.json(user))
-//         .catch(err =>
-//             res.status(500).json({error: "Error in get api/users/:id. " + err})
-//         );
-// });
+// PATCH /api/admins/profile/update
+// change admin password
+router.patch('/profile/update', passport.authenticate('adminJWT', { session: false }), (req, res) => {
+
+    bcrypt.compare(req.body.oldPassword, req.user.password)
+        .then(isMatch => {
+            if (isMatch) {
+                bcrypt.genSalt(10, (err, salt) => {
+                    bcrypt.hash(req.body.newPassword, salt, (err, hash) => {
+                        if (err) throw err;
+                        else {
+                            Admin.findOneAndUpdate({ id: req.user.id }, { $set: { password: hash } }, function (err, admin) {
+                                if (err) {
+                                    return res.status(401).json({ error: 'saveErr' });
+                                }
+                                else {
+                                    return res.status(200).json({
+                                        success: true,
+                                    });
+                                }
+                            });
+                        }
+                    });
+                });
 
 
+            }
+            else {
+                return res.status(400).json({ password: "Incorrect Password" });
+            }
+        });
+});
 
-// GET /api/admins/
-router.get('/', passport.authenticate('adminJWT', {session: false}), (req, res) => {
-    res.json({
-        id: req.user.id,
-        first_name: req.user.first_name,
-        last_name: req.user.last_name,
-        email: req.user.email
-    });
+// GET /api/admins/profile
+router.get('/profile', passport.authenticate('adminJWT', {session: false}), (req, res) => {
+        return res.status(200).json({
+            id: req.user.id,
+            name: req.user.name,
+            email: req.user.email
+        });
+});
+
+// GET /api/admins/<:admin_id>
+router.get('/:id', passport.authenticate('adminJWT', {session: false}), (req, res) => {
+
+    Admin.findOne({ id: req.params.id })
+        .then(admin => res.json(admin))
+        .catch(err =>
+            res.status(500).json({ error: "Error in get api/admins/:id. " + err })
+        );
 });
 
 module.exports = router;

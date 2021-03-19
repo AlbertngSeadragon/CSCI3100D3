@@ -5,11 +5,7 @@ const Schema = mongoose.Schema;
 
 
 const AdminSchema = new Schema({
-    first_name: {
-        type: String,
-        required: true
-    },
-    last_name: {
+    name: {
         type: String,
         required: true
     },
@@ -18,10 +14,14 @@ const AdminSchema = new Schema({
         enum: ['M', 'F', 'N/A'],
         required: true
     },
-    // birth_date: {
-    //     type: Date,
-    //     required: true
-    // },
+    role: {
+        type: String,
+        default: "admin"
+    },
+    createTime: {
+        type: Date,
+        default: Date.now
+    },
     email: {
         type: String,
         required: true,
