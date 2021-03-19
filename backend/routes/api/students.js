@@ -56,7 +56,9 @@ router.post('/login',
         passport.authenticate('studentLocal', { 
             successRedirect: '/api/students',
             failureRedirect: '/api/students/register'
-    }));
+        })
+);
+
 // GET /api/students/logout
 router.get('/logout', (req, res) => {
     req.logout();
