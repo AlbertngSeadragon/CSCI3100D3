@@ -23,7 +23,20 @@ Mobile:
 ## Web app
 
 ### Frontend
-The file explorer is accessible using the button in left corner of the navigation bar. You can create a new file by clicking the **New file** button in the file explorer. You can also create folders by clicking the **New folder** button.
+
+#### Installation
+
+Run the following command within **my-app/** directory to install all the dependecy.
+
+    npm install
+
+#### Usage
+
+Run the following command to start the frontend server
+
+    npm run app
+
+## Mobile app
 
 ### Backend
 
@@ -35,7 +48,7 @@ Run the following command within **backend/** directory
 
 #### Usage
 
-Run the following command to start the server
+Run the following command to start the backend server
 
     npm run app
 
