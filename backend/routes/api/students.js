@@ -72,15 +72,11 @@ router.get('/logout', (req, res) => {
 // GET /api/students/
 router.get('/', (req, res) => {
     if(req.user){
-<<<<<<< HEAD
-        res.send(req.user);
-=======
         res.json({
             first_name: req.user.first_name,
             last_name: req.user.last_name,
             email: req.user.email
         });
->>>>>>> backend
     }else{
         res.send('no logged in student')
     }
