@@ -38,6 +38,7 @@ module.exports = (passport) => {
             }
             bcrypt.compare(password, student.password)
                 .then((isMatch) => {
+                    console.log(`ismatch = ${isMatch}`)
                     if(isMatch){
                         return done(null, student);
                     }

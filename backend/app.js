@@ -6,6 +6,7 @@ const passport = require('passport');
 const path = require('path');
 const admins = require('./routes/api/admins');
 const students = require('./routes/api/students');
+const events = require('./routes/api/events');
 const keys = require('./config/keys');
 
 const app = express();
@@ -38,6 +39,7 @@ require('./config/passport')(passport);
 
 app.use('/api/admins', admins);
 app.use('/api/students', students);
+app.use('/api/events', events);
 
 if(process.env.NODE_ENV === 'production'){
     app.use(express.static('client/build'));

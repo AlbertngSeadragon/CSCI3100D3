@@ -10,7 +10,7 @@ const validateAdminLoginInput = require('../../validation/adminLogin');
 
 const Admin = require('../../models/Admin');
 
-// POST /api/admin/register
+// POST /api/admins/register
 // logged in admin signs up a new admin
 router.post('/register', passport.authenticate('adminJWT', {session: false}), (req, res) => {
     
