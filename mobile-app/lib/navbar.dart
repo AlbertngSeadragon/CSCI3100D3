@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:animations/animations.dart';
 import 'package:best_flutter_ui_templates/design_course/home_design_course.dart';
 import 'package:best_flutter_ui_templates/design_course/programs.dart';
+import 'invite_friend_screen.dart';
 
 class NavBar extends StatefulWidget {
   @override
@@ -20,6 +21,7 @@ class _NavBarState extends State<NavBar> {
     HomePageDialogflow(),
     Forum(),
     Profile(),
+    InviteFriend(),
   ];
 
   int _selectedIndex = 0;
@@ -61,24 +63,28 @@ class _NavBarState extends State<NavBar> {
         },
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Icon(Icons.home_outlined),
             title: Text('Home'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.list),
-            title: Text('Programs'),
+            icon: Icon(Icons.list_alt_sharp),
+            title: Text('Events'),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.chat_outlined ),
             title: Text('Chatbot'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.archive),
+            icon: Icon(Icons.forum_outlined),
             title: Text('Forum'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.people),
+            icon: Icon(Icons.person_search_outlined),
             title: Text('Profile'),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.share),
+            title: Text('Share'),
           ),
         ],
       ),

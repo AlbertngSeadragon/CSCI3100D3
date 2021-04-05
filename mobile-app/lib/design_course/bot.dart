@@ -31,7 +31,7 @@ class _HomePageDialogflow extends State<HomePageDialogflow> {
                 controller: _textController,
                 onSubmitted: _handleSubmitted,
                 decoration: new InputDecoration.collapsed(
-                  hintText: "Talk to virtual assistant...",
+                  hintText: "Talk to Univent virtual assistant...",
                 ),
               ),
             ),
@@ -74,7 +74,7 @@ class _HomePageDialogflow extends State<HomePageDialogflow> {
     _textController.clear();
     ChatMessage message = new ChatMessage(
       text: text,
-      name: "Ka Ho Cheng",
+      name: "Michael",
       type: true,
     );
     setState(() {
@@ -87,7 +87,7 @@ class _HomePageDialogflow extends State<HomePageDialogflow> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: AppBar(
-          title: Text("AI Virtual Assistant",
+          title: Text("Univent Helper",
               style: TextStyle(
                   color: DesignCourseAppTheme.darkText,
                   fontFamily: "WorkSans")),

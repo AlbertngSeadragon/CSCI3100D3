@@ -27,12 +27,12 @@ class _InviteFriendState extends State<InviteFriend> {
                     top: MediaQuery.of(context).padding.top,
                     left: 16,
                     right: 16),
-                child: Image.asset('assets/images/inviteImage.png'),
+                child: Image.asset('assets/images/invite.png'),
               ),
               Container(
                 padding: const EdgeInsets.only(top: 8),
                 child: Text(
-                  'Invite Your Friends',
+                  'Share Univent with your friend',
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -42,22 +42,23 @@ class _InviteFriendState extends State<InviteFriend> {
               Container(
                 padding: const EdgeInsets.only(top: 16),
                 child: const Text(
-                  'Are you one of those who makes everything\n at the last moment?',
+                  'Do not wait and tell your friend to join Univent',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 16,
                   ),
                 ),
               ),
+              _buildComposer(),
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Center(
                     child: Container(
-                      width: 120,
+                      width: 250,
                       height: 40,
                       decoration: BoxDecoration(
-                        color: Colors.blue,
+                        color: Colors.pinkAccent,
                         borderRadius:
                             const BorderRadius.all(Radius.circular(4.0)),
                         boxShadow: <BoxShadow>[
@@ -84,7 +85,7 @@ class _InviteFriendState extends State<InviteFriend> {
                                 Padding(
                                   padding: const EdgeInsets.all(4.0),
                                   child: Text(
-                                    'Share',
+                                    'Share to facebook',
                                     style: TextStyle(
                                       fontWeight: FontWeight.w500,
                                       color: Colors.white,
@@ -106,4 +107,47 @@ class _InviteFriendState extends State<InviteFriend> {
       ),
     );
   }
+  Widget _buildComposer() {
+    return Padding(
+      padding: const EdgeInsets.only(top: 16, left: 32, right: 32),
+      child: Container(
+        decoration: BoxDecoration(
+          color: AppTheme.white,
+          borderRadius: BorderRadius.circular(8),
+          boxShadow: <BoxShadow>[
+            BoxShadow(
+                color: Colors.grey.withOpacity(0.8),
+                offset: const Offset(4, 4),
+                blurRadius: 8),
+          ],
+        ),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(25),
+          child: Container(
+            padding: const EdgeInsets.all(4.0),
+            constraints: const BoxConstraints(minHeight: 80, maxHeight: 160),
+            color: AppTheme.white,
+            child: SingleChildScrollView(
+              padding:
+              const EdgeInsets.only(left: 10, right: 10, top: 0, bottom: 0),
+              child: TextField(
+                maxLines: null,
+                onChanged: (String txt) {},
+                style: TextStyle(
+                  fontFamily: AppTheme.fontName,
+                  fontSize: 16,
+                  color: AppTheme.dark_grey,
+                ),
+                cursorColor: Colors.blue,
+                decoration: InputDecoration(
+                    border: InputBorder.none,
+                    hintText: 'Message to your friend...'),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
 }
+

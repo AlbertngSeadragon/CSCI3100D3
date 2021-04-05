@@ -305,7 +305,7 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> {
                   ),
                 ),
                 Text(
-                  'Ka Ho Cheng',
+                  'Michael',
                   textAlign: TextAlign.left,
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
@@ -347,7 +347,7 @@ Widget getAppBarUI() {
               ),
             ),
             Text(
-              'Ka Ho Cheng',
+              'Michael',
               textAlign: TextAlign.left,
               style: TextStyle(
                 fontWeight: FontWeight.bold,

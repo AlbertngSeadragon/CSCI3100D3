@@ -1,7 +1,6 @@
 import 'package:best_flutter_ui_templates/design_course/category_list_view.dart';
 import 'package:best_flutter_ui_templates/design_course/course_info_screen.dart';
 import 'package:best_flutter_ui_templates/design_course/popular_course_list_view.dart';
-import 'package:best_flutter_ui_templates/fitness_app/fintness_app_theme.dart';
 import 'package:best_flutter_ui_templates/main.dart';
 import 'package:flutter/material.dart';
 import 'design_course_app_theme.dart';
@@ -57,7 +56,7 @@ class _ProgramState extends State<Program> {
                     topRight: Radius.circular(10.0)),
                 boxShadow: <BoxShadow>[
                   BoxShadow(
-                      color: FitnessAppTheme.grey.withOpacity(0.6),
+                      color: DesignCourseAppTheme.grey.withOpacity(0.6),
                       offset: Offset(1.1, 1.1),
                       blurRadius: 10.0),
                 ],
@@ -75,7 +74,7 @@ class _ProgramState extends State<Program> {
                         fontWeight: FontWeight.normal,
                         fontSize: 14,
                         letterSpacing: 0.0,
-                        color: FitnessAppTheme.white,
+                        color: DesignCourseAppTheme.nearlyWhite,
                       ),
                     ),
                     Padding(
@@ -87,7 +86,7 @@ class _ProgramState extends State<Program> {
                           fontWeight: FontWeight.bold,
                           fontSize: 25,
                           letterSpacing: 0.0,
-                          color: FitnessAppTheme.white,
+                          color: DesignCourseAppTheme.nearlyWhite,
                         ),
                       ),
                     ),
@@ -104,7 +103,7 @@ class _ProgramState extends State<Program> {
                             padding: const EdgeInsets.only(left: 4),
                             child: Icon(
                               Icons.timer,
-                              color: FitnessAppTheme.white,
+                              color: DesignCourseAppTheme.nearlyWhite,
                               size: 16,
                             ),
                           ),
@@ -114,11 +113,11 @@ class _ProgramState extends State<Program> {
                               '09/2019 - 10/2019',
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                fontFamily: FitnessAppTheme.fontName,
+                                fontFamily: null,
                                 fontWeight: FontWeight.w500,
                                 fontSize: 14,
                                 letterSpacing: 0.0,
-                                color: FitnessAppTheme.white,
+                                color: DesignCourseAppTheme.nearlyWhite,
                               ),
                             ),
                           ),
@@ -153,10 +152,32 @@ class _ProgramState extends State<Program> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       new ListTile(
+                        leading: new Icon(Icons.android_sharp,
+                            size: 40.0, color: Colors.grey),
+                        title: new Text(
+                          "Common Material",
+                          style: new TextStyle(fontSize: 20.0),
+                        ),
+                        subtitle: const Text('solutions.xlsx'),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            new Container(
+              child: GestureDetector(
+                onTap: _launchURL,
+                child: new Card(
+                  elevation: 5,
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      new ListTile(
                         leading: new Icon(Icons.plagiarism_sharp,
                             size: 40.0, color: Colors.grey),
                         title: new Text(
-                          "Seminar Recording",
+                          "Video Recording",
                           style: new TextStyle(fontSize: 20.0),
                         ),
                         subtitle: const Text('rec_sem.mp4'),
@@ -178,7 +199,7 @@ class _ProgramState extends State<Program> {
                         leading: new Icon(Icons.dashboard_customize,
                             size: 40.0, color: Colors.grey),
                         title: new Text(
-                          "Evaluation WS",
+                          "Evaluation",
                           style: new TextStyle(fontSize: 20.0),
                         ),
                         subtitle: const Text('evaluation.doc'),
@@ -197,10 +218,10 @@ class _ProgramState extends State<Program> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       new ListTile(
-                        leading: new Icon(Icons.dashboard_customize,
+                        leading: new Icon(Icons.request_page,
                             size: 40.0, color: Colors.grey),
                         title: new Text(
-                          "Excel Solutions",
+                          "Solutions",
                           style: new TextStyle(fontSize: 20.0),
                         ),
                         subtitle: const Text('solutions.xlsx'),
@@ -222,7 +243,7 @@ class _ProgramState extends State<Program> {
                         leading: new Icon(Icons.folder,
                             size: 40.0, color: Colors.grey),
                         title: new Text(
-                          "Workshop Examples",
+                          "Event Material",
                           style: new TextStyle(fontSize: 20.0),
                         ),
                         subtitle: const Text('Details'),

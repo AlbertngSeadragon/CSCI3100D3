@@ -46,7 +46,7 @@ class _ProfileState extends State<Profile> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   new Text(
-                    "Badges Earned:",
+                    "Events Badges Earned:",
                     style: TextStyle(
                       //fontFamily: "PingFang HK",
                       fontWeight: FontWeight.w500,
@@ -150,7 +150,7 @@ class _ProfileState extends State<Profile> {
             ),
             SizedBox(height: 30),
             Text(
-              'Leaderboard',
+              'Highest Event Rating',
               textAlign: TextAlign.left,
               style: TextStyle(
                 fontWeight: FontWeight.w600,
@@ -186,7 +186,7 @@ class _ProfileState extends State<Profile> {
                       ),
                       SizedBox(width: 30),
                       new Text(
-                        "Lee Ka Shing",
+                        "CSCI3100",
                         style: TextStyle(
                           //fontFamily: "PingFang HK",
                           fontWeight: FontWeight.w500,
@@ -198,7 +198,7 @@ class _ProfileState extends State<Profile> {
                         child: SizedBox(width: 1),
                       ),
                       new Text(
-                        "3,000",
+                        "100,000",
                         style: TextStyle(
                           //fontFamily: "PingFang HK",
                           fontWeight: FontWeight.w700,
@@ -234,7 +234,7 @@ class _ProfileState extends State<Profile> {
                       ),
                       SizedBox(width: 30),
                       new Text(
-                        "Chan Tai Man",
+                        "Physics",
                         style: TextStyle(
                           //fontFamily: "PingFang HK",
                           fontWeight: FontWeight.w500,
@@ -282,7 +282,7 @@ class _ProfileState extends State<Profile> {
                       ),
                       SizedBox(width: 30),
                       new Text(
-                        "Brian Cha",
+                        "History",
                         style: TextStyle(
                           //fontFamily: "PingFang HK",
                           fontWeight: FontWeight.w500,
@@ -305,6 +305,55 @@ class _ProfileState extends State<Profile> {
                     ],
                   ),
                 ),
+                SizedBox(height: 10),
+                new Container(
+                  padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
+                  //height: 175.37,
+                  width: 376.00,
+                  decoration: BoxDecoration(
+                    color: Color(0xFFFFC0CB).withOpacity(0.4),
+                    borderRadius: BorderRadius.circular(11.00),
+                  ),
+                  child: Row(
+                    children: <Widget>[
+                      Container(
+                        width: 40,
+                        child: new Text(
+                          "#4",
+                          style: TextStyle(
+                            //fontFamily: "PingFang HK",
+                            fontWeight: FontWeight.w700,
+                            fontSize: 25,
+                            color: Color(0xff8F8B8B),
+                          ),
+                        ),
+                      ),
+                      SizedBox(width: 30),
+                      new Text(
+                        "Work Life Balance",
+                        style: TextStyle(
+                          //fontFamily: "PingFang HK",
+                          fontWeight: FontWeight.w500,
+                          fontSize: 15,
+                          color: Color(0xff8F8B8B),
+                        ),
+                      ),
+                      Expanded(
+                        child: SizedBox(width: 1),
+                      ),
+                      new Text(
+                        "200",
+                        style: TextStyle(
+                          //fontFamily: "PingFang HK",
+                          fontWeight: FontWeight.w700,
+                          fontSize: 25,
+                          color: Color(0xff8F8B8B),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 10),
               ],
             ),
           ],
