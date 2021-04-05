@@ -9,7 +9,7 @@ const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
 
 const User = require('../../models/User');
-
+const Event = require('../../models/Event');
 
 // POST /api/users/register
 // sign up a new Student user
@@ -153,6 +153,21 @@ router.get('/current', passport.authenticate('jwt', { session: false }), (req, r
     });
 });
 
+// GET /api/users/myEvents
+router.get('/myEvents', passport.authenticate('jwt', { session: false }), async (req, res) => {
+    var myEvents = [];
+    await Event.find().sort('-createDate').populate('user', ['name']).then(events => {
+        events.forEach(event => {
+            event.participants.forEach(participant => {
+                if(participant.id === req.user.id){
+                    myEvents.push(event);
+                }
+            });
+        });
+    });
+    return res.json(myEvents);
+});
+
 // GET /api/users/<:id>
 router.get('/:id', (req, res) => {
     User.findById(req.params.id)
@@ -161,5 +176,7 @@ router.get('/:id', (req, res) => {
             res.status(500).json({ error: "Error in get api/users/:id " + err })
         );
 });
+
+
 
 module.exports = router;

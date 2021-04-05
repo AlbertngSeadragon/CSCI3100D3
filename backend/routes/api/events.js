@@ -30,10 +30,30 @@ router.post('/create', passport.authenticate('jwt', { session: false }), (req, r
     if (req.body.img) eventFields.img = req.body.img;
     if (req.body.eventDate) eventFields.eventDate = req.body.eventDate;
 
-
-    // create a new event
     new Event(eventFields).save().then(event => res.json(event));
 });
+
+// POST /api/events/:id/update
+// update event
+router.post('/:id/update', passport.authenticate('jwt', { session: false }), (req, res) => {
+
+    Event.findById(req.params.id)
+        .then(event => {
+            if(event){
+                if (req.body.eventName) event.eventName = req.body.eventName;
+                if (req.body.eventType) event.eventType = req.body.eventType;
+                if (req.body.quota) event.quota = req.body.quota;
+                if (req.body.location) event.location = req.body.location;
+                if (req.body.description) event.description = req.body.description;
+                if (req.body.img) event.img = req.body.img;
+                if (req.body.eventDate) event.eventDate = req.body.eventDate;
+
+                return event.save().then(event => res.json(event));;
+            }
+        });
+    
+});
+
 
 // PUT /api/events/<:event_id>/join
 // add player to the event
@@ -81,7 +101,7 @@ router.put('/:id/join', passport.authenticate('jwt', { session: false }), (req, 
 
 // DELETE /api/events/<:event_id>
 // delete an event
-router.delete('/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
+router.delete('/:id/delete', passport.authenticate('jwt', { session: false }), (req, res) => {
     Event.findById(req.params.id)
         .then(event => {
             if (event.host.toString() !== req.user.id) {
@@ -94,7 +114,7 @@ router.delete('/:id', passport.authenticate('jwt', { session: false }), (req, re
 
 
 // GET /api/events/
-// fetch all events
+// fetch all events or events with given event type
 router.get('/', (req, res) => {
     Event.find(req.query.eventType ? { eventType: req.query.eventType } : {})
         .sort('-createDate')
