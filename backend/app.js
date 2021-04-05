@@ -1,13 +1,11 @@
 const express = require('express');
-const session = require('express-session');
 const connectDB = require('./config/db');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const path = require('path');
-const admins = require('./routes/api/admins');
-const students = require('./routes/api/students');
+
+const users = require('./routes/api/users');
 const events = require('./routes/api/events');
-const keys = require('./config/keys');
 
 const app = express();
 connectDB();
@@ -27,19 +25,14 @@ app.use(function (req, res, next) {
     next();
 });
 
-app.use(session({
-    secret: keys.sessionKey, 
-    resave: false,
-    saveUninitialized: true
-}))
 
 app.use(passport.initialize());
 app.use(passport.session());
 require('./config/passport')(passport);
 
-app.use('/api/admins', admins);
-app.use('/api/students', students);
+
 app.use('/api/events', events);
+app.use('/api/users', users);
 
 if(process.env.NODE_ENV === 'production'){
     app.use(express.static('client/build'));
