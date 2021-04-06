@@ -15,11 +15,7 @@ const Event = new Schema(
             type: String, 
             required: true 
         },
-        createDate: { 
-            type: Date, 
-            default: Date.now
-        },
-        eventDate: {
+        date: {
             type: Date,
             required: true
         },
@@ -29,9 +25,9 @@ const Event = new Schema(
         },
         participants: [
             {
-                id: {
-                    type: String,
-                    required: true
+                user: {
+                    type: Schema.Types.ObjectId,
+                    ref: 'users'
                 },
                 name: {
                     type: String,
@@ -45,12 +41,13 @@ const Event = new Schema(
                     type: Schema.Types.ObjectId,
                     ref: 'users'
                 },
-                content: {
+                name: {
                     type: String,
                     required: true
                 },
-                name: {
-                    type: String
+                comment: {
+                    type: String,
+                    required: true
                 },
                 date:{
                     type: Date,
@@ -61,7 +58,7 @@ const Event = new Schema(
         img: { 
             type: String 
         },
-        location: { 
+        location: {
             type: String, 
             required: true 
         },
@@ -70,7 +67,8 @@ const Event = new Schema(
             required: true 
         },
 
-    }
+    },
+    { timestamps: true }
 )
 
 module.exports = mongoose.model('events', Event);
