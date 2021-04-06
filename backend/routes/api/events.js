@@ -4,7 +4,7 @@ const passport = require('passport');
 
 const Event = require('../../models/Event');
 
-// GET /api/events/<:event_id>
+// GET /api/events/:id
 // find an event by Id
 router.get('/:id', (req, res) => {
     Event.findById(req.params.id)
@@ -19,23 +19,23 @@ router.get('/:id', (req, res) => {
 // create event
 router.post('/create', passport.authenticate('jwt', { session: false }), (req, res) => {
 
-    const eventFields = {};
-    eventFields.host = req.user.id;
+    const eventBody = {};
+    eventBody.host = req.user.id;
 
-    if (req.body.eventName) eventFields.eventName = req.body.eventName;
-    if (req.body.eventType) eventFields.eventType = req.body.eventType;
-    if (req.body.quota) eventFields.quota = req.body.quota;
-    if (req.body.location) eventFields.location = req.body.location;
-    if (req.body.description) eventFields.description = req.body.description;
-    if (req.body.img) eventFields.img = req.body.img;
-    if (req.body.eventDate) eventFields.eventDate = req.body.eventDate;
+    if (req.body.eventName) eventBody.eventName = req.body.eventName;
+    if (req.body.eventType) eventBody.eventType = req.body.eventType;
+    if (req.body.quota) eventBody.quota = req.body.quota;
+    if (req.body.location) eventBody.location = req.body.location;
+    if (req.body.description) eventBody.description = req.body.description;
+    if (req.body.img) eventBody.img = req.body.img;
+    if (req.body.eventDate) eventBody.eventDate = req.body.eventDate;
 
-    new Event(eventFields).save().then(event => res.json(event));
+    new Event(eventBody).save().then(event => res.json(event));
 });
 
-// POST /api/events/:id/update
+// PATCH /api/events/:id/update
 // update event
-router.post('/:id/update', passport.authenticate('jwt', { session: false }), (req, res) => {
+router.patch('/:id/update', passport.authenticate('jwt', { session: false }), (req, res) => {
 
     Event.findById(req.params.id)
         .then(event => {
@@ -49,6 +49,9 @@ router.post('/:id/update', passport.authenticate('jwt', { session: false }), (re
                 if (req.body.eventDate) event.eventDate = req.body.eventDate;
 
                 return event.save().then(event => res.json(event));;
+            }
+            else{
+                res.status(404).json({ error: "Event not found" });
             }
         });
     

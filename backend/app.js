@@ -6,12 +6,17 @@ const path = require('path');
 
 const users = require('./routes/api/users');
 const events = require('./routes/api/events');
-
+const comments = require('./routes/api/comments');
+const profiles = require('./routes/api/profile');
 const app = express();
+
+// connect to MongoDB Atlas Cloud Database
 connectDB();
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
+
+// setting header information
 app.use(function (req, res, next) {
 
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -27,12 +32,13 @@ app.use(function (req, res, next) {
 
 
 app.use(passport.initialize());
-app.use(passport.session());
 require('./config/passport')(passport);
 
 
 app.use('/api/events', events);
 app.use('/api/users', users);
+app.use('/api/events/', comments);
+app.use('/api/profiles/', profiles);
 
 if(process.env.NODE_ENV === 'production'){
     app.use(express.static('client/build'));
@@ -41,8 +47,6 @@ if(process.env.NODE_ENV === 'production'){
         res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
     });
 }
-
-app.get('/', (req, res) => res.send('Hello World!'));
 
 const port = process.env.PORT || 8082;
 

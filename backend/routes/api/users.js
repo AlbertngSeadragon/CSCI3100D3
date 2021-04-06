@@ -5,25 +5,18 @@ const jwt = require('jsonwebtoken');
 const keys = require('../../config/keys');
 const passport = require('passport');
 
-const validateRegisterInput = require('../../validation/register');
-const validateLoginInput = require('../../validation/login');
-
 const User = require('../../models/User');
 const Event = require('../../models/Event');
 
 // POST /api/users/register
 // sign up a new Student user
 router.post('/register', (req, res) => {
-    const { errors, isValid } = validateRegisterInput(req.body);
-
-    if (!isValid) {
-        return res.status(400).json(errors);
-    }
+    const errors = {};
 
     User.findOne({ email: req.body.email })
         .then(user => {
             if (user) {
-                errors.email = 'Email already exists';
+                errors.message = 'Email already exists';
                 return res.status(400).json(errors);
             }
             else {
@@ -56,16 +49,12 @@ router.post('/register', (req, res) => {
 // sign up a new Admin user
 router.post('/adminRegister', passport.authenticate('jwt', { session: false }), (req, res) => {
     if (req.user.role === 'admin') {
-        const { errors, isValid } = validateRegisterInput(req.body);
-
-        if (!isValid) {
-            return res.status(400).json(errors);
-        }
+        
 
         User.findOne({ email: req.body.email })
             .then(user => {
                 if (user) {
-                    errors.email = 'Email already exists';
+                    errors.message = 'Email already exists';
                     return res.status(400).json(errors);
                 }
                 else {
@@ -95,7 +84,7 @@ router.post('/adminRegister', passport.authenticate('jwt', { session: false }), 
     }
 
     else {
-        return res.status(400).json({ error: 'You are not authorized' });
+        return res.status(400).json({ message: 'You are not authorized' });
     }
 
 });
@@ -104,10 +93,7 @@ router.post('/adminRegister', passport.authenticate('jwt', { session: false }), 
 // POST /api/users/login
 // login the user
 router.post('/login', (req, res) => {
-    const { errors, isValid } = validateLoginInput(req.body);
-    if (!isValid) {
-        return res.status(400).json(errors);
-    }
+    const errors = {};
 
     const email = req.body.email;
     const password = req.body.password;
@@ -115,7 +101,7 @@ router.post('/login', (req, res) => {
     User.findOne({ email })
         .then(user => {
             if (!user) {
-                errors.email = 'Email not found';
+                errors.message = 'Incorrect email or password';
                 return res.status(404).json(errors);
             }
             bcrypt.compare(password, user.password)
@@ -136,7 +122,7 @@ router.post('/login', (req, res) => {
                             });
                     }
                     else {
-                        errors.password = 'Password incorrect';
+                        errors.message = 'Incorrect email or password';
                         return res.status(400).json(errors);
                     }
                 });
@@ -168,12 +154,17 @@ router.get('/myEvents', passport.authenticate('jwt', { session: false }), async 
     return res.json(myEvents);
 });
 
-// GET /api/users/<:id>
+// GET /api/users/:id
 router.get('/:id', (req, res) => {
     User.findById(req.params.id)
-        .then(user => res.json(user))
+        .then(user => res.json({
+            id: user.id,
+            name: user.name,
+            role: user.role,
+            email: user.email
+        }))
         .catch(err =>
-            res.status(500).json({ error: "Error in get api/users/:id " + err })
+            res.status(500).json({ message: "Error in get api/users/:id " + err })
         );
 });
 

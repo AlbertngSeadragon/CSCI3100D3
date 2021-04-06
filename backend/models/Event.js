@@ -39,6 +39,25 @@ const Event = new Schema(
                 }
             } 
         ],
+        comments: [
+            {
+                user: {
+                    type: Schema.Types.ObjectId,
+                    ref: 'users'
+                },
+                content: {
+                    type: String,
+                    required: true
+                },
+                name: {
+                    type: String
+                },
+                date:{
+                    type: Date,
+                    default: Date.now
+                }
+            }
+        ],
         img: { 
             type: String 
         },
