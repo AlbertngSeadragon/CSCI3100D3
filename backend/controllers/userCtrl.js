@@ -22,7 +22,7 @@ createStudent = (req, res) => {
                 });
 
                 bcrypt.genSalt(10, (err, salt) => {
-                    bcrypt.hash(newUser.password, salt, (err, hash) => {
+                    bcrypt.hash(user.password, salt, (err, hash) => {
                         if (err) throw err;
                         user.password = hash;
                         user
@@ -42,7 +42,7 @@ createStudent = (req, res) => {
 
 createAdmin = (req, res) => {
     if (req.user.role === 'admin') {
-    
+        const errors = {};
         User.findOne({ email: req.body.email })
             .then(user => {
                 if (user) {
@@ -132,10 +132,10 @@ getCurrentUser = (req, res) => {
 
 getUserEvents = async (req, res) => {
     var myEvents = [];
-    await Event.find().sort('-createDate').populate('user', ['name']).then(events => {
+    await Event.find().sort('-createdAt').populate('user').then(events => {
         events.forEach(event => {
             event.participants.forEach(participant => {
-                if(participant.id === req.user.id){
+                if (participant.user._id.toString() === req.user.id) {
                     myEvents.push(event);
                 }
             });

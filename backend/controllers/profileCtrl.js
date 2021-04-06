@@ -1,8 +1,6 @@
 const StudentProfile = require('../models/StudentProfile');
 const AdminProfile = require('../models/AdminProfile');
 
-
-
 getProfile = (req, res) => {
     if (req.user.role === 'student') {
         StudentProfile.findOne({ student: req.user.id })
@@ -88,44 +86,44 @@ getProfileById = (req, res) => {
     const errors = {};
 
     User.findById(req.params.id)
-    .then(user => {
-        if (user.role === 'student') {
-            StudentProfile.findOne({ student: req.params.id })
-                .populate('user', ['name'])
-                .then(profile => {
-                    if (!profile) {
-                        errors.message = 'This user does not exist';
-                        res.status(404).json(errors);
-                    }
-                    res.json(profile);
-                })
-                .catch(err =>
-                    res.status(500).json({ errors: err })
-                );
-        }
-        else if (user.role === 'admin') {
-    
-            AdminProfile.findOne({ admin: req.params.id })
-                .populate('user', ['name'])
-                .then(profile => {
-                    if (!profile) {
-                        errors.message = 'This user does not exist';
-                        res.status(404).json(errors);
-                    }
-                    res.json(profile);
-                })
-                .catch(err =>
-                    res.status(500).json({ errors: err })
-                );
-        }
-    
-        else {
-            return res.status(404).json({message: 'No such user'});
-        }
-    })
-    .catch(err =>
-        res.status(500).json({ message: "Error in get api/users/:id " + err })
-    );
+        .then(user => {
+            if (user.role === 'student') {
+                StudentProfile.findOne({ student: req.params.id })
+                    .populate('user', ['name'])
+                    .then(profile => {
+                        if (!profile) {
+                            errors.message = 'This user does not exist';
+                            res.status(404).json(errors);
+                        }
+                        res.json(profile);
+                    })
+                    .catch(err =>
+                        res.status(500).json({ errors: err })
+                    );
+            }
+            else if (user.role === 'admin') {
+
+                AdminProfile.findOne({ admin: req.params.id })
+                    .populate('user', ['name'])
+                    .then(profile => {
+                        if (!profile) {
+                            errors.message = 'This user does not exist';
+                            res.status(404).json(errors);
+                        }
+                        res.json(profile);
+                    })
+                    .catch(err =>
+                        res.status(500).json({ errors: err })
+                    );
+            }
+
+            else {
+                return res.status(404).json({ message: 'No such user' });
+            }
+        })
+        .catch(err =>
+            res.status(500).json({ error: err })
+        );
 }
 
 module.exports = {

@@ -8,7 +8,7 @@ router.post('/', passport.authenticate('jwt', { session: false }), EventCtrl.cre
 router.put('/:id', passport.authenticate('jwt', { session: false }), EventCtrl.updateEvent);
 router.delete('/:id', passport.authenticate('jwt', { session: false }), EventCtrl.deleteEvent);
 router.get('/:id', EventCtrl.getEventById);
-router.get('/', EventCtrl.getEvents);
 router.put('/:id/join', passport.authenticate('jwt', { session: false }), EventCtrl.joinEvent);
+router.get('/', EventCtrl.getEvents);
 
 module.exports = router;

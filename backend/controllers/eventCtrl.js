@@ -13,7 +13,7 @@ createEvent = (req, res) => {
     const event = new Event(body);
 
     if (!event) {
-        return res.status(400).json({ success: false, error: "Event not created!"});
+        return res.status(400).json({ success: false, error: "Event not created!" });
     }
 
     event
@@ -51,19 +51,19 @@ updateEvent = async (req, res) => {
                 message: 'Event not found!',
             });
         }
-        if(event.host.toString() !== req.user.id){
+        if (event.host.toString() !== req.user.id) {
             return res.status(401).json({
                 success: false,
                 message: 'You are not authorised',
             });
         }
-        if(body.eventName) event.eventName = body.eventName;
-        if(body.eventType) event.eventType = body.eventType;
-        if(body.date) event.date = body.date;
-        if(body.quota) event.quota = body.quota;
-        if(body.img) event.img = body.img;
-        if(body.location) event.location = body.location;
-        if(body.description) event.description = body.description;
+        if (body.eventName) event.eventName = body.eventName;
+        if (body.eventType) event.eventType = body.eventType;
+        if (body.date) event.date = body.date;
+        if (body.quota) event.quota = body.quota;
+        if (body.img) event.img = body.img;
+        if (body.location) event.location = body.location;
+        if (body.description) event.description = body.description;
         event
             .save()
             .then(() => {
@@ -93,14 +93,14 @@ deleteEvent = async (req, res) => {
                 .status(404)
                 .json({ success: false, error: 'Event not found' })
         }
-        if(event.host.toString() !== req.user.id){
+        if (event.host.toString() !== req.user.id) {
             return res.status(401).json({
                 success: false,
                 message: 'You are not authorised',
             });
         }
         event.remove().then(() => {
-            return res.status(200).json({ success: true})
+            return res.status(200).json({ success: true })
         });
     }).catch(err => console.log(err));
 }
