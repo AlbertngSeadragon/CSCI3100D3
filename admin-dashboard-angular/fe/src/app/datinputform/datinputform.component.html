@@ -1,0 +1,17 @@
+<h6>
+    <form novalidate [formGroup]="yearmonthday" (ngSubmit)="onSubmit(yearmonthday.value)">
+        <mat-form-field appearance="fill">
+            <mat-label>Year</mat-label>
+            <input matInput formControlName="year">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Month</mat-label>
+            <input matInput formControlName="month">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Day</mat-label>
+            <input matInput formControlName="day">
+        </mat-form-field>
+        <button mat-raised-button type="submit">Submit</button>
+    </form>
+</h6>

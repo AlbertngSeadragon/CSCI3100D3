@@ -1,0 +1,36 @@
+<!--dash.component.html-->
+
+<div class="grid-container">
+  <h1 class="mat-h1">Dashboard <app-datinputform></app-datinputform></h1>
+  <mat-grid-list cols="{{ ( cardLayout | async )?.columns }}" rowHeight="200px">
+    <!--Table-->
+    <mat-grid-tile [colspan]="( cardLayout | async )?.table.cols" [rowspan]="( cardLayout | async )?.table.rows">
+      <app-card title="Number of Event">
+        <app-monthlty-line-chart></app-monthlty-line-chart>
+      </app-card>
+    </mat-grid-tile>
+    <!--Mini Cards-->
+    <!-- <mat-grid-tile *ngFor="let i of [1, 2, 3, 4]" [colspan]="( cardLayout | async )?.miniCard.cols"
+      [rowspan]="( cardLayout | async )?.miniCard.rows">
+      <app-card title="Card {{i}}">
+        <div>Mini Card Content Here</div>
+      </app-card>
+    </mat-grid-tile> -->
+    <!--Charts-->
+    <mat-grid-tile [colspan]="( cardLayout | async )?.chart.cols" [rowspan]="( cardLayout | async )?.chart.rows">
+      <app-card title="Event Type">
+        <app-vip-nonvip-chart></app-vip-nonvip-chart>
+      </app-card>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="( cardLayout | async )?.bar.cols" [rowspan]="( cardLayout | async )?.bar.rows">
+      <app-card title="Popular Event of year">
+        <app-seo-bar-chart></app-seo-bar-chart>
+      </app-card>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="( cardLayout | async )?.bar.cols" [rowspan]="( cardLayout | async )?.bar.rows">
+      <app-card title="Popular Event of month">
+        <app-nonseo-bar-chart></app-nonseo-bar-chart>
+      </app-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
