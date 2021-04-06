@@ -13,7 +13,7 @@ export class GetdatabaseapiService {
   $shared = new EventEmitter();
   sharedData
 
-  private api = 'http://127.0.0.1:5000/getchartdata'
+  private api = 'http://34.207.154.183/getchartdata'
   constructor(private http: HttpClient) { }
 
   // getdata(){
