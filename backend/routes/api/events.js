@@ -1,13 +1,14 @@
 const express = require('express');
 
-const EventCtrl = require('../../controllers/eventController');
-
+const EventCtrl = require('../../controllers/eventCtrl');
+const passport = require('passport');
 const router = express.Router();
 
-router.post('/create', EventCtrl.createEvent);
-router.put('/update/:id', EventCtrl.updateEvent);
-router.delete('/delete/:id', EventCtrl.deleteEvent);
+router.post('/', passport.authenticate('jwt', { session: false }), EventCtrl.createEvent);
+router.put('/:id', passport.authenticate('jwt', { session: false }), EventCtrl.updateEvent);
+router.delete('/:id', passport.authenticate('jwt', { session: false }), EventCtrl.deleteEvent);
 router.get('/:id', EventCtrl.getEventById);
+router.put('/:id/join', passport.authenticate('jwt', { session: false }), EventCtrl.joinEvent);
 router.get('/', EventCtrl.getEvents);
 
 module.exports = router;
