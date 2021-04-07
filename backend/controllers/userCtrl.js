@@ -29,7 +29,8 @@ createStudent = (req, res) => {
                             .save()
                             .then(() => {
                                 res.json({
-                                    success: true
+                                    success: true,
+                                    message: "User successfully created"
                                 });
                             })
                             .catch(err => console.log(err));
@@ -50,7 +51,7 @@ createAdmin = (req, res) => {
                     return res.status(400).json(errors);
                 }
                 else {
-                    const newUser = new User({
+                    const user = new User({
                         name: req.body.name,
                         email: req.body.email,
                         password: req.body.password,
@@ -58,14 +59,15 @@ createAdmin = (req, res) => {
                     });
 
                     bcrypt.genSalt(10, (err, salt) => {
-                        bcrypt.hash(newUser.password, salt, (err, hash) => {
+                        bcrypt.hash(user.password, salt, (err, hash) => {
                             if (err) throw err;
-                            newUser.password = hash;
-                            newUser
+                            user.password = hash;
+                            user
                                 .save()
-                                .then(user => {
+                                .then(() => {
                                     res.json({
-                                        success: true
+                                        success: true,
+                                        message: "User successfully created"
                                     });
                                 })
                                 .catch(err => console.log(err));
@@ -76,7 +78,9 @@ createAdmin = (req, res) => {
     }
 
     else {
-        return res.status(400).json({ message: 'You are not authorized' });
+        return res.status(401).json({
+            success: false, 
+            message: 'You are not authorized' });
     }
 
 }
@@ -85,19 +89,17 @@ createAdmin = (req, res) => {
 login = (req, res) => {
     const errors = {};
 
-    const email = req.body.email;
-    const password = req.body.password;
 
-    User.findOne({ email })
+    User.findOne({ email: req.body.email })
         .then(user => {
             if (!user) {
                 errors.message = 'Incorrect email or password';
                 return res.status(404).json(errors);
             }
-            bcrypt.compare(password, user.password)
-                .then(isMatch => {
-                    if (isMatch) {
-                        const payload = { id: user.id, name: user.name };
+            bcrypt.compare(req.body.password, user.password)
+                .then(areSame => {
+                    if (areSame) {
+                        const payload = { id: user.id };
 
                         jwt.sign(
                             payload,
@@ -106,6 +108,7 @@ login = (req, res) => {
                             (err, token) => {
                                 res.json({
                                     success: true,
+                                    name: user.name,
                                     role: user.role,
                                     token: 'Bearer ' + token
                                 });
@@ -132,16 +135,20 @@ getCurrentUser = (req, res) => {
 
 getUserEvents = async (req, res) => {
     var myEvents = [];
-    await Event.find().sort('-createdAt').populate('user').then(events => {
+    await Event.find().sort('-createdAt').then(events => {
         events.forEach(event => {
             event.participants.forEach(participant => {
-                if (participant.user._id.toString() === req.user.id) {
+                if (participant.user.toString() === req.user.id) {
                     myEvents.push(event);
                 }
             });
         });
     });
-    return res.json(myEvents);
+    if(myEvents.length) return res.json(myEvents);
+    return res.json({
+        success: false,
+        message: 'No events found'
+    });
 }
 
 
@@ -153,9 +160,7 @@ getUserById = (req, res) => {
             role: user.role,
             email: user.email
         }))
-        .catch(err =>
-            res.status(500).json({ message: "Error in get api/users/:id " + err })
-        );
+        .catch(err => console.log(err));
 }
 
 module.exports = {

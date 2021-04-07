@@ -4,7 +4,6 @@ const AdminProfile = require('../models/AdminProfile');
 getProfile = (req, res) => {
     if (req.user.role === 'student') {
         StudentProfile.findOne({ student: req.user.id })
-            .populate('user')
             .then(profile => {
                 if (!profile) {
                     return res.status(404).json({ error: 'There is no profile for this student' });
@@ -15,7 +14,6 @@ getProfile = (req, res) => {
     }
     else {
         AdminProfile.findOne({ admin: req.user.id })
-            .populate('user')
             .then(profile => {
                 if (!profile) {
                     return res.status(404).json({ error: 'There is no profile for this admin' });
@@ -89,7 +87,6 @@ getProfileById = (req, res) => {
         .then(user => {
             if (user.role === 'student') {
                 StudentProfile.findOne({ student: req.params.id })
-                    .populate('user', ['name'])
                     .then(profile => {
                         if (!profile) {
                             errors.message = 'This user does not exist';
@@ -104,7 +101,6 @@ getProfileById = (req, res) => {
             else if (user.role === 'admin') {
 
                 AdminProfile.findOne({ admin: req.params.id })
-                    .populate('user', ['name'])
                     .then(profile => {
                         if (!profile) {
                             errors.message = 'This user does not exist';

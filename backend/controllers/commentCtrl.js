@@ -2,7 +2,6 @@ const Event = require('../models/Event');
 
 createComment = (req, res) => {
     Event.findById(req.params.id)
-        .populate('user')
         .then(event => {
 
             const comment = {
@@ -23,13 +22,12 @@ createComment = (req, res) => {
 
 deleteComment = (req, res) => {
     Event.findById(req.params.id)
-        .populate('user')
         .then(event => {
             const idx = event.comments
                 .map(comment => comment.id)
                 .indexOf(req.params.cid);
 
-            if (event.comments[idx].user._id.toString() !== req.user.id) {
+            if (event.comments[idx].user.toString() !== req.user.id) {
                 return res.status(401).json({ error: 'You are not authorized' });
             }
             event.comments.splice(idx, 1);

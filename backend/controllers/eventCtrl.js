@@ -121,8 +121,8 @@ getEventById = async (req, res) => {
 }
 
 getEvents = async (req, res) => {
-    await Event.find({}, (err, events) => {
-        if (err) {
+    await Event.find().sort('-createdAt').then(events => {
+        if (!events) {
             return res.status(400).json({ success: false, error: err })
         }
         if (!events.length) {
@@ -136,7 +136,6 @@ getEvents = async (req, res) => {
 
 joinEvent = (req, res) => {
     Event.findById(req.params.id)
-        .populate('user')
         .then(event => {
             if (!event) {
                 return res.status(404).json({ success: false, error: 'This event is not found' });
