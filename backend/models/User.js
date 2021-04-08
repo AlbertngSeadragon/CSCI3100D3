@@ -19,6 +19,15 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
+    verificationKey: { 
+        type: String, 
+        required:true 
+    },
+    emailVerified: { 
+        type: Boolean, 
+        required:true, 
+        default: false 
+    },
 },
     { timestamps: true }
 );

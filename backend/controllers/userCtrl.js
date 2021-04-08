@@ -3,9 +3,29 @@ const jwt = require('jsonwebtoken');
 const keys = require('../config/keys');
 const User = require('../models/User');
 const Event = require('../models/Event');
+const nodemailer = require('nodemailer');
+const smtpTransporter=require('nodemailer-smtp-transport');
+const crypto = require('crypto');
+
+
+const smtpTransport = nodemailer.createTransport(smtpTransporter({
+    service: 'Gmail',
+    host:'smtp.gmail.com',
+    auth: {
+        user: keys.email,
+        pass: keys.password
+    },
+    tls: {
+        rejectUnauthorized: false
+    }
+}));
+
 
 createStudent = (req, res) => {
     const errors = {};
+    var keyOne=crypto.randomBytes(256).toString('hex').substr(100, 5);
+    var keyTwo=crypto.randomBytes(256).toString('base64').substr(50, 5);
+    var verificationKey = keyOne + keyTwo;
 
     User.findOne({ email: req.body.email })
         .then(user => {
@@ -18,6 +38,7 @@ createStudent = (req, res) => {
                     name: req.body.name,
                     email: req.body.email,
                     password: req.body.password,
+                    verificationKey: verificationKey,
                     role: 'student'
                 });
 
@@ -28,9 +49,26 @@ createStudent = (req, res) => {
                         user
                             .save()
                             .then(() => {
-                                res.json({
+                                //url
+                                var url = 'http://' + req.get('host')+'/api/users/confirmEmail'+'?key=' + verificationKey;
+                                //email body
+                                var mailOpt = {
+                                    from: keys.email,
+                                    to: user.email,
+                                    subject: 'Complete Registration With Univent',
+                                    html : '<h2>Complete your registration by clicking the URL below</h2><br>' + url
+                                };
+                                smtpTransport.sendMail(mailOpt, (err, res) => {
+                                    if (err) {
+                                        throw err;
+                                    } else {
+                                        console.log('email has been sent.');
+                                    }
+                                    smtpTransport.close();
+                                });
+                                return res.status(200).json({
                                     success: true,
-                                    message: "User successfully created"
+                                    message: `User successfully created. Registration email sent to ${user.email}. Open this email to finish signup.`,
                                 });
                             })
                             .catch(err => console.log(err));
@@ -55,6 +93,8 @@ createAdmin = (req, res) => {
                         name: req.body.name,
                         email: req.body.email,
                         password: req.body.password,
+                        verificationKey: 0,
+                        emailVerified: true,
                         role: 'admin'
                     });
 
@@ -95,6 +135,9 @@ login = (req, res) => {
             if (!user) {
                 errors.message = 'Incorrect email or password';
                 return res.status(404).json(errors);
+            } else if (!user.emailVerified) {
+                errors.message = 'Unfinished email verification';
+                return res.status(404).json(errors);
             }
             bcrypt.compare(req.body.password, user.password)
                 .then(areSame => {
@@ -120,6 +163,26 @@ login = (req, res) => {
                     }
                 });
         });
+}
+
+
+confirmEmail = (req, res) => {
+    User.updateOne({verificationKey:req.query.key}, {$set:{emailVerified:true}})
+    .then(documents => {
+        if(documents.n = 0){
+            return res.status(400).json({
+                success: false,
+                message: 'verification key not found',
+            });
+        }
+        else {
+            return res.status(200).json({
+                success: true,
+                message: 'email varified successfully',
+            });
+        }
+    })
+    .catch(err => console.log(err));
 }
 
 
@@ -167,6 +230,7 @@ module.exports = {
     createStudent,
     createAdmin,
     login,
+    confirmEmail,
     getCurrentUser,
     getUserEvents,
     getUserById
