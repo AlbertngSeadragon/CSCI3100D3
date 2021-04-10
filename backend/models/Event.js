@@ -35,6 +35,10 @@ const Event = new Schema(
                 }
             } 
         ],
+        numOfParticipants: {
+            type: Number,
+            default: 0
+        },
         comments: [
             {
                 user: {

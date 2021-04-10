@@ -121,7 +121,7 @@ getEventById = async (req, res) => {
 }
 
 getEvents = async (req, res) => {
-    await Event.find().sort('-createdAt').then(events => {
+    await Event.find(req.query.eventType ? {eventType: req.query.eventType} : {}).sort('-createdAt').then(events => {
         if (!events) {
             return res.status(400).json({ success: false, error: err })
         }
@@ -161,6 +161,7 @@ joinEvent = (req, res) => {
 
 
             event.participants.push(participant);
+            event.numOfParticipants = event.numOfParticipants + 1;
             return event.save();
         })
         .then(newEvent => {
@@ -172,11 +173,19 @@ joinEvent = (req, res) => {
         .catch(err => console.log(err));
 }
 
+getTrending = (req, res) => {
+    Event.find().sort('-numOfParticipants').limit(3).exec((err, result) => {
+        if(err) return res.status(400).json({ success: false, error: err })
+        return res.status(200).json({ success: true, data: result });
+    });
+}
+
 module.exports = {
     createEvent,
     updateEvent,
     deleteEvent,
     getEvents,
     getEventById,
-    joinEvent
+    joinEvent,
+    getTrending
 }
