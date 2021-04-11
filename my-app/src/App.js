@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-import { PrivateRoute } from "./components/PrivateRoute";
-import Profile from './components/Profile';
 import './App.css';
+import { PrivateRoute } from "./components/PrivateRoute";
+import Profile from './components/pages/Profile';
 import Navbar from './components/Navbar/Navbar';
-import About from './components/About';
-import Signup from './components/signup';
-import Event from './components/Events';
-import CreateEvent from './components/CreateEvent';
+import About from './components/pages/About';
+import EventsList from './components/Event/EventsList';
+import CreateEvent from "./components/Event/EventsInsert";
+import Signup from './components/Registration';
+import Home from './components/pages/Home';
+
 
 class App extends Component {
   render(){  
@@ -16,9 +18,10 @@ class App extends Component {
         <div className="App">
           <Navbar />
           <Switch>
+            <Route path="/" exact component={Home} />
             <Route path="/About" exact component={About} />
-            <Route path="/signup" exact component={Signup} />
-            <Route path="/Events" exact component={Event} />
+            <Route path="/Signup" exact component={Signup} />
+            <Route path="/EventsList" exact component={EventsList} />
             <Route path="/CreateEvent" exact component={CreateEvent} />
             <PrivateRoute path="/Profile" exact component={Profile}/>
           </Switch>  

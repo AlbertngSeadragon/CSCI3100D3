@@ -3,14 +3,14 @@ import { Route, Redirect } from 'react-router-dom';
 import auth from './auth';
 
 export const PrivateRoute = ({ component: Component, ...rest }) => {
-    return (    
+    return (
         <Route {...rest} render={props => {
-            if(auth.isAuthenticated()){
+            if (localStorage.getItem("user")) {
                 return <Component {...props} />;
             }
             else {
                 return <Redirect to={{ pathname: "/signup", state: { from: props.location } }} />;
             }
         }} />
-    ); 
+    );
 };

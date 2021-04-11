@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import Header from "./Header";
-import Footer from "./Footer";
 import Note from "./Note";
 import CreateArea from "./CreateArea";
 
@@ -23,7 +21,6 @@ function App() {
 
   return (
     <div>
-      <Header />
       <CreateArea onAdd={addNote} />
       {notes.map((noteItem, index) => {
         return (
@@ -35,11 +32,12 @@ function App() {
             date={noteItem.date}
             quota={noteItem.quota}
             description={noteItem.description}
+            image={noteItem.image}
+            place={noteItem.place}
             onDelete={deleteNote}
           />
         );
       })}
-      <Footer />
     </div>
   );
 }

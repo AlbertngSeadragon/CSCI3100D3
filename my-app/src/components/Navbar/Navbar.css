@@ -5,6 +5,7 @@
   justify-content: center;
   align-items: center;
   font-size: 1.2rem;
+  line-height: 0;
 }
 
 .navbar-logo {
@@ -15,28 +16,34 @@
   text-decoration: none;
 }
 
+.navbar-logo:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
 .nav-menu {
   display: grid;
   grid-template-columns: repeat(5, auto);
-  grid-gap: 10px;
+  grid-gap: 20px;
   list-style: none;
   text-align: center;
   width: 70vw;
   justify-content: end;
   margin-right: 2rem;
+  margin-top: 12px;
 }
 
 .nav-links {
   color: #fff;
   text-decoration: none;
   padding: 0.5rem 1rem;
+  display: contents;
 }
 
 .nav-links:hover {
-  display: table;
-  background-color: #1888ff;
-  border-radius: 4px;
+  color: #1888ff;
   transition: all 0.2s ease-out;
+  text-decoration: none;
 }
 
 .fa-bars {
@@ -49,6 +56,34 @@
 
 .menu-icon {
   display: none;
+}
+
+#button {
+  padding: 8px 20px;
+  border-radius: 4px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background-color: #1888ff;
+  color: #fff;
+  font-size: 1rem;
+}
+
+#button:hover {
+  padding: 8px 20px;
+  transition: all 0.3s ease-out;
+  background: #fff;
+  color: rgb(10, 1, 44);
+  transition: 250ms;
+}
+
+#button--outline {
+  background-color: transparent;
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 4px;
+  border: 1px solid var(--primary);
+  transition: all 0.3s ease-out;
 }
 
 @media screen and (max-width: 960px) {
@@ -66,6 +101,7 @@
     left: -100%;
     opacity: 1;
     transition: all 0.5s ease;
+    z-index: 2;
   }
 
   .nav-menu.active {
@@ -73,7 +109,7 @@
     left: 0;
     opacity: 1;
     transition: all 0.5s ease;
-    z-index: 1;
+    z-index: 17;
   }
 
   .nav-links {
@@ -86,6 +122,7 @@
   .nav-links:hover {
     background-color: #1888ff;
     border-radius: 0;
+    color: white;
   }
 
   .navbar-logo {
@@ -116,6 +153,7 @@
     color: white;
     font-size: 1.5rem;
     background: #1888ff;
+    z-index: 2;
   }
 
   .nav-links-mobile:hover {
@@ -123,7 +161,8 @@
     color: #1888ff;
     transition: 250ms;
   }
-  button {
+
+  #button {
     display: none;
   }
 }
