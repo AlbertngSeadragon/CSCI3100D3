@@ -34,6 +34,37 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> {
                   child: Column(
                     children: <Widget>[
                       getSearchBarUI(),
+                      new Container(
+                        padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
+                        //height: 175.37,
+                        width: 376.00,
+                        decoration: BoxDecoration(
+                          color: Color(0xFFFFC0CB).withOpacity(0.4),
+                          borderRadius: BorderRadius.circular(11.00),
+                        ),
+                        child: Row(
+                          children: <Widget>[
+                            Container(
+                              width: 40,
+                              child:
+                              new Icon(Icons.wb_sunny_sharp,
+                                  size: 40.0,
+                                color: Colors.deepOrange),
+                            ),
+                            SizedBox(width: 30),
+                            new Text(
+                              "Today weather: Sunny",
+                              style: TextStyle(
+                                //fontFamily: "PingFang HK",
+                                fontWeight: FontWeight.w700,
+                                fontSize: 20,
+                                color: Color(0xff8F8B8B),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(height: 10),
                       getCategoryUI(),
                       Flexible(
                         child: getPopularCourseUI(),
@@ -54,6 +85,27 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
+        const SizedBox(
+          height: 16,
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 8.0, left: 18, right: 16),
+          child: Text(
+            'Next To Join',
+            textAlign: TextAlign.left,
+            style: TextStyle(
+              fontWeight: FontWeight.w600,
+              fontSize: 22,
+              letterSpacing: 0.27,
+              color: DesignCourseAppTheme.darkerText,
+            ),
+          ),
+        ),
+        CategoryListView(
+          callBack: () {
+            moveTo();
+          },
+        ),
         Row(
           children: [
             Padding(
@@ -97,27 +149,6 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> {
               child: SizedBox(),
             ),
           ],
-        ),
-        const SizedBox(
-          height: 16,
-        ),
-        Padding(
-          padding: const EdgeInsets.only(top: 8.0, left: 18, right: 16),
-          child: Text(
-            'Next To Join',
-            textAlign: TextAlign.left,
-            style: TextStyle(
-              fontWeight: FontWeight.w600,
-              fontSize: 22,
-              letterSpacing: 0.27,
-              color: DesignCourseAppTheme.darkerText,
-            ),
-          ),
-        ),
-        CategoryListView(
-          callBack: () {
-            moveTo();
-          },
         ),
       ],
     );
@@ -248,7 +279,7 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> {
                           ),
                           keyboardType: TextInputType.text,
                           decoration: InputDecoration(
-                            labelText: 'Search for course',
+                            labelText: 'Search for Events',
                             border: InputBorder.none,
                             helperStyle: TextStyle(
                               fontWeight: FontWeight.bold,

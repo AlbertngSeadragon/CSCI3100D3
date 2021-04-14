@@ -91,7 +91,7 @@ class _HomePageDialogflow extends State<HomePageDialogflow> {
               style: TextStyle(
                   color: DesignCourseAppTheme.darkText,
                   fontFamily: "WorkSans")),
-          backgroundColor: Colors.white),
+          backgroundColor: Colors.pinkAccent),
       body: new Column(children: <Widget>[
         new Flexible(
             child: new ListView.builder(

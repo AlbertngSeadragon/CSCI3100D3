@@ -21,6 +21,9 @@ export class SeoBarChartComponent implements OnInit {
   public barChartData: ChartDataSets[] = [
     { data: [], label: 'Name Event Year' },
   ];
+  public barChartColors: Array<any> = [{
+    backgroundColor: [],
+  }];
 
   constructor(private readonly apiService: GetdatabaseapiService) { }
 
@@ -32,6 +35,7 @@ export class SeoBarChartComponent implements OnInit {
       data.Year.forEach(item => {
         this.barChartLabels.push(item[0].trim());
         this.barChartData[0].data.push(item[1]);
+        this.barChartColors[0].backgroundColor.push('green')
       })
       // console.log("catory:  ", this.pieChartLabels)
       // console.log("catory number:  ", this.pieChartData)

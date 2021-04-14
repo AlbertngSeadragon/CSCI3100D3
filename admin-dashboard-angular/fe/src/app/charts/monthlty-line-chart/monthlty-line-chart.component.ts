@@ -20,7 +20,7 @@ export class MonthltyLineChartComponent implements OnInit {
   public lineChartColors: Color[] = [
     {
       borderColor: 'black',
-      backgroundColor: 'rgba(255,0,0,0.1)',
+      backgroundColor: 'rgba(255,255,0,0.1)',
     },
   ];
   public lineChartLegend = true;

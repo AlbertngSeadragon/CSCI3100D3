@@ -18,10 +18,10 @@ class _NavBarState extends State<NavBar> {
   final _pageoption = [
     DesignCourseHomeScreen(),
     Program(),
-    HomePageDialogflow(),
+    InviteFriend(),
     Forum(),
     Profile(),
-    InviteFriend(),
+    HomePageDialogflow(),
   ];
 
   int _selectedIndex = 0;
@@ -71,8 +71,8 @@ class _NavBarState extends State<NavBar> {
             title: Text('Events'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.chat_outlined ),
-            title: Text('Chatbot'),
+            icon: Icon(Icons.share),
+            title: Text('Share'),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.forum_outlined),
@@ -83,8 +83,8 @@ class _NavBarState extends State<NavBar> {
             title: Text('Profile'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.share),
-            title: Text('Share'),
+            icon: Icon(Icons.chat_outlined ),
+            title: Text('Chatbot'),
           ),
         ],
       ),

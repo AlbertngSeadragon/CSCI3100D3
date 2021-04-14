@@ -66,98 +66,6 @@ class _ForumState extends State<Forum> {
                     ),
                   ),
                   SizedBox(
-                    height: 20,
-                  ),
-                  new Container(
-                    padding: EdgeInsets.all(20),
-                    //height: 175.37,
-                    width: 400.00,
-                    decoration: BoxDecoration(
-                      color: Color(0xFFFFC0CB).withOpacity(0.4),
-                      borderRadius: BorderRadius.circular(11.00),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        new Text(
-                          "Poll:\nDo you like our service?",
-                          style: TextStyle(
-                            //fontFamily: "PingFang HK",
-                            fontWeight: FontWeight.w500,
-                            fontSize: 16,
-                          ),
-                        ),
-                        SizedBox(height: 10),
-                        Column(
-                          children: <Widget>[
-                            Center(
-                              child: Row(
-                                children: [
-                                  Row(
-                                    children: [
-                                      Checkbox(
-                                        activeColor:
-                                            DesignCourseAppTheme.nearlyBlue,
-                                        value: val_1,
-                                        onChanged: (bool value) {
-                                          setState(() {
-                                            val_1 = value;
-                                          });
-                                        },
-                                      ),
-                                      Text("Good")
-                                    ],
-                                  ),
-                                  Row(
-                                    children: [
-                                      Checkbox(
-                                        activeColor:
-                                            DesignCourseAppTheme.nearlyBlue,
-                                        value: val_2,
-                                        onChanged: (bool value) {
-                                          setState(() {
-                                            val_2 = value;
-                                          });
-                                        },
-                                      ),
-                                      Text("No opinion")
-                                    ],
-                                  ),
-                                  Row(
-                                    children: [
-                                      Checkbox(
-                                        activeColor:
-                                            DesignCourseAppTheme.nearlyBlue,
-                                        value: val_3,
-                                        onChanged: (bool value) {
-                                          setState(() {
-                                            val_3 = value;
-                                          });
-                                        },
-                                      ),
-                                      Text("Bad")
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: 5),
-                        Center(
-                          child: RaisedButton(
-                            onPressed: _showcontent,
-                            child: Text("Submit",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontFamily: "WorkSans")),
-                            color: DesignCourseAppTheme.nearlyBlue,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
                     height: 30,
                   ),
                   Text(
@@ -190,6 +98,98 @@ class _ForumState extends State<Forum> {
                             "23",
                             "10",
                             "7"),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  new Container(
+                    padding: EdgeInsets.all(20),
+                    //height: 175.37,
+                    width: 400.00,
+                    decoration: BoxDecoration(
+                      color: Color(0xFFFFC0CB).withOpacity(0.4),
+                      borderRadius: BorderRadius.circular(11.00),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        new Text(
+                          "Poll:\nDo you like our service?",
+                          style: TextStyle(
+                            //fontFamily: "PingFang HK",
+                            fontWeight: FontWeight.w500,
+                            fontSize: 16,
+                          ),
+                        ),
+                        SizedBox(height: 10),
+                        Column(
+                          children: <Widget>[
+                            Center(
+                              child: Row(
+                                children: [
+                                  Row(
+                                    children: [
+                                      Checkbox(
+                                        activeColor:
+                                        DesignCourseAppTheme.nearlyBlue,
+                                        value: val_1,
+                                        onChanged: (bool value) {
+                                          setState(() {
+                                            val_1 = value;
+                                          });
+                                        },
+                                      ),
+                                      Text("Good")
+                                    ],
+                                  ),
+                                  Row(
+                                    children: [
+                                      Checkbox(
+                                        activeColor:
+                                        DesignCourseAppTheme.nearlyBlue,
+                                        value: val_2,
+                                        onChanged: (bool value) {
+                                          setState(() {
+                                            val_2 = value;
+                                          });
+                                        },
+                                      ),
+                                      Text("No opinion")
+                                    ],
+                                  ),
+                                  Row(
+                                    children: [
+                                      Checkbox(
+                                        activeColor:
+                                        DesignCourseAppTheme.nearlyBlue,
+                                        value: val_3,
+                                        onChanged: (bool value) {
+                                          setState(() {
+                                            val_3 = value;
+                                          });
+                                        },
+                                      ),
+                                      Text("Bad")
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 5),
+                        Center(
+                          child: RaisedButton(
+                            onPressed: _showcontent,
+                            child: Text("Submit",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontFamily: "WorkSans")),
+                            color: DesignCourseAppTheme.nearlyBlue,
+                          ),
+                        ),
                       ],
                     ),
                   ),

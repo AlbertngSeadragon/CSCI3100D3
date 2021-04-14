@@ -35,7 +35,7 @@ export class NonseoBarChartComponent implements OnInit {
       data.Month.forEach(item => {
         this.barChartLabels.push(item[0].trim());
         this.barChartData[0].data.push(item[1]);
-        this.barChartColors[0].backgroundColor.push('red')
+        this.barChartColors[0].backgroundColor.push('blue')
       })
       // console.log("catory:  ", this.pieChartLabels)
       // console.log("catory number:  ", this.pieChartData)

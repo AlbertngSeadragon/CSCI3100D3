@@ -34,121 +34,6 @@ class _ProfileState extends State<Profile> {
             SizedBox(height: 20),
             getAppBarUI(),
             SizedBox(height: 20),
-            new Container(
-              padding: EdgeInsets.all(20),
-              //height: 175.37,
-              width: 376.00,
-              decoration: BoxDecoration(
-                color: Color(0xFFFFC0CB).withOpacity(0.4),
-                borderRadius: BorderRadius.circular(11.00),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  new Text(
-                    "Events Badges Earned:",
-                    style: TextStyle(
-                      //fontFamily: "PingFang HK",
-                      fontWeight: FontWeight.w500,
-                      fontSize: 15,
-                      color: Color(0xff8F8B8B),
-                    ),
-                  ),
-                  SizedBox(height: 10),
-                  Column(
-                    children: <Widget>[
-                      Row(
-                        children: [
-                          Expanded(
-                            child: SizedBox(
-                              height: 1,
-                            ),
-                          ),
-                          Image.asset("assets/badges/1.png"),
-                          Expanded(
-                            child: SizedBox(
-                              height: 1,
-                            ),
-                          ),
-                          Image.asset("assets/badges/2.png"),
-                          Expanded(
-                            child: SizedBox(
-                              height: 1,
-                            ),
-                          ),
-                          Image.asset("assets/badges/3.png"),
-                          Expanded(
-                            child: SizedBox(
-                              height: 1,
-                            ),
-                          ),
-                          Image.asset("assets/badges/4.png"),
-                          Expanded(
-                            child: SizedBox(
-                              height: 1,
-                            ),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Expanded(
-                            child: SizedBox(
-                              height: 1,
-                            ),
-                          ),
-                          Image.asset("assets/badges/5.png"),
-                          Expanded(
-                            child: SizedBox(
-                              height: 1,
-                            ),
-                          ),
-                          Image.asset("assets/badges/6.png"),
-                          Expanded(
-                            child: SizedBox(
-                              height: 1,
-                            ),
-                          ),
-                          Image.asset("assets/badges/7.png"),
-                          Expanded(
-                            child: SizedBox(
-                              height: 1,
-                            ),
-                          ),
-                          Image.asset("assets/badges/8.png"),
-                          Expanded(
-                            child: SizedBox(
-                              height: 1,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 20),
-                  new Text(
-                    "Total Points:",
-                    style: TextStyle(
-                      //fontFamily: "PingFang HK",
-                      fontWeight: FontWeight.w500,
-                      fontSize: 15,
-                      color: Color(0xff8F8B8B),
-                    ),
-                  ),
-                  SizedBox(height: 5),
-                  new Text(
-                    "2,550",
-                    style: TextStyle(
-                      //fontFamily: "PingFang HK",
-                      fontWeight: FontWeight.w700,
-                      fontSize: 30,
-                      color: Color(0xff8F8B8B),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(height: 30),
             Text(
               'Highest Event Rating',
               textAlign: TextAlign.left,
@@ -356,6 +241,121 @@ class _ProfileState extends State<Profile> {
                 SizedBox(height: 10),
               ],
             ),
+            new Container(
+              padding: EdgeInsets.all(20),
+              //height: 175.37,
+              width: 376.00,
+              decoration: BoxDecoration(
+                color: Color(0xFFFFC0CB).withOpacity(0.4),
+                borderRadius: BorderRadius.circular(11.00),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  new Text(
+                    "Events Badges Earned:",
+                    style: TextStyle(
+                      //fontFamily: "PingFang HK",
+                      fontWeight: FontWeight.w500,
+                      fontSize: 15,
+                      color: Color(0xff8F8B8B),
+                    ),
+                  ),
+                  SizedBox(height: 10),
+                  Column(
+                    children: <Widget>[
+                      Row(
+                        children: [
+                          Expanded(
+                            child: SizedBox(
+                              height: 1,
+                            ),
+                          ),
+                          Image.asset("assets/badges/1.png"),
+                          Expanded(
+                            child: SizedBox(
+                              height: 1,
+                            ),
+                          ),
+                          Image.asset("assets/badges/2.png"),
+                          Expanded(
+                            child: SizedBox(
+                              height: 1,
+                            ),
+                          ),
+                          Image.asset("assets/badges/3.png"),
+                          Expanded(
+                            child: SizedBox(
+                              height: 1,
+                            ),
+                          ),
+                          Image.asset("assets/badges/4.png"),
+                          Expanded(
+                            child: SizedBox(
+                              height: 1,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: SizedBox(
+                              height: 1,
+                            ),
+                          ),
+                          Image.asset("assets/badges/5.png"),
+                          Expanded(
+                            child: SizedBox(
+                              height: 1,
+                            ),
+                          ),
+                          Image.asset("assets/badges/6.png"),
+                          Expanded(
+                            child: SizedBox(
+                              height: 1,
+                            ),
+                          ),
+                          Image.asset("assets/badges/7.png"),
+                          Expanded(
+                            child: SizedBox(
+                              height: 1,
+                            ),
+                          ),
+                          Image.asset("assets/badges/8.png"),
+                          Expanded(
+                            child: SizedBox(
+                              height: 1,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 20),
+                  new Text(
+                    "Total Points:",
+                    style: TextStyle(
+                      //fontFamily: "PingFang HK",
+                      fontWeight: FontWeight.w500,
+                      fontSize: 15,
+                      color: Color(0xff8F8B8B),
+                    ),
+                  ),
+                  SizedBox(height: 5),
+                  new Text(
+                    "2,550",
+                    style: TextStyle(
+                      //fontFamily: "PingFang HK",
+                      fontWeight: FontWeight.w700,
+                      fontSize: 30,
+                      color: Color(0xff8F8B8B),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 30),
           ],
         ),
       ),
