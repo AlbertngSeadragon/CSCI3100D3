@@ -176,10 +176,14 @@ confirmEmail = (req, res) => {
             });
         }
         else {
-            return res.status(200).json({
-                success: true,
-                message: 'email verified successfully',
-            });
+            var url = 'http://' + req.get('host') + '/';
+            res.send(`<h1>UNIVENT<h1>
+                      <h2>Email Verified Successfully<h2>
+                      <h3><a href=${url}> Click to go back to the homepage</a></h3>`);
+            //return res.status(200).json({
+            //    success: true,
+            //    message: 'email verified successfully',
+            //});
         }
     })
     .catch(err => console.log(err));
