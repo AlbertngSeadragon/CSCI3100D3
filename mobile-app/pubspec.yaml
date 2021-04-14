@@ -33,6 +33,9 @@ dependencies:
   flutter_tts: ^1.2.7
   wave_progress_widget: ^0.0.1
   url_launcher: ^5.4.2
+  slide_digital_clock: ^1.0.0
+  circular_profile_avatar: ^2.0.0
+  curved_navigation_bar: ^0.3.7
 
 dev_dependencies:
   flutter_test:

@@ -6,6 +6,7 @@ import 'package:best_flutter_ui_templates/main.dart';
 import 'package:flutter/material.dart';
 import 'design_course_app_theme.dart';
 import 'package:wave_progress_widget/wave_progress.dart';
+import 'package:slide_digital_clock/slide_digital_clock.dart';
 
 class DesignCourseHomeScreen extends StatefulWidget {
   @override
@@ -65,6 +66,18 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> {
                         ),
                       ),
                       SizedBox(height: 10),
+                      DigitalClock(
+                        digitAnimationStyle: Curves.elasticOut,
+                        is24HourTimeFormat: false,
+                        areaDecoration: BoxDecoration(
+                          color: Colors.transparent,
+                        ),
+                        hourMinuteDigitTextStyle: TextStyle(
+                          color: Colors.blueGrey,
+                          fontSize: 50,
+                        ),
+                        amPmDigitTextStyle: TextStyle(color: Colors.blueGrey, fontWeight: FontWeight.bold),
+                      ),
                       getCategoryUI(),
                       Flexible(
                         child: getPopularCourseUI(),

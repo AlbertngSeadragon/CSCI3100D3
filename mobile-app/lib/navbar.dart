@@ -8,6 +8,7 @@ import 'package:animations/animations.dart';
 import 'package:best_flutter_ui_templates/design_course/home_design_course.dart';
 import 'package:best_flutter_ui_templates/design_course/programs.dart';
 import 'invite_friend_screen.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
 class NavBar extends StatefulWidget {
   @override
