@@ -13,6 +13,20 @@
     margin-bottom: 50px;
 }
 
+.caption {
+    border-radius: 5px;
+    padding: 1px 5px 1px 5px;
+    background-color: #313131da;
+}
+
+.carousel-control-prev-icon:hover {
+    background-color: #313131;
+}
+
+.carousel-control-next-icon:hover {
+    background-color: #313131;
+}
+
 #heroCol {
     text-align: start;
 }
@@ -23,9 +37,10 @@
     flex-direction: column;
     background: rgb(239, 240, 240);
     margin-top: 50px;
-    padding-bottom: 50px;
+    padding-bottom: 150px;
     padding-left: 6%;
     padding-right: 1%;
+    margin-bottom: 50px;
 }
 
 .cards__items {
@@ -40,10 +55,21 @@
     background: white;
 }
 
-#button:hover {
+#getStartedBtn {
+    padding: 8px 20px;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background-color: #1888ff;
+    color: #fff;
+    font-size: 1rem;
+}
+
+#getStartedBtn:hover {
     padding: 8px 20px;
     transition: all 0.3s ease-out;
-    background: #000;
+    background-color: #000;
     color: rgb(255, 255, 255);
     transition: 250ms;
 }

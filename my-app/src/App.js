@@ -9,6 +9,7 @@ import EventsList from './components/Event/EventsList';
 import CreateEvent from "./components/Event/EventsInsert";
 import Signup from './components/Registration';
 import Home from './components/pages/Home';
+import Footer from './components/Navbar/Footer';
 
 
 class App extends Component {
@@ -22,9 +23,11 @@ class App extends Component {
             <Route path="/About" exact component={About} />
             <Route path="/Signup" exact component={Signup} />
             <Route path="/EventsList" exact component={EventsList} />
-            <Route path="/CreateEvent" exact component={CreateEvent} />
+            <Route exact path="/EventsList/:type" component={EventsList} />
+            <PrivateRoute path="/CreateEvent" exact component={CreateEvent} />
             <PrivateRoute path="/Profile" exact component={Profile}/>
-          </Switch>  
+          </Switch> 
+          <Footer /> 
         </div>
       </Router>
     );

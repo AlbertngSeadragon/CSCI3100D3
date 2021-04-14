@@ -46,35 +46,19 @@ class Navbar extends Component {
         <div className='menu-icon' onClick={this.handleClick}>
           <i className={this.state.clicked ? 'fas fa-times' : 'fas fa-bars'}></i>
         </div>
+        {currentUser ? (
         <ul className={this.state.clicked ? 'nav-menu active' : 'nav-menu'}>
-          <li>
-            <a className="nav-links" href="/About">
-              About
-            </a>
-          </li>
-          <li>
-            <a className="nav-links" href="/Profile">
-              Profile
-            </a>
-          </li>
-          <li>
-            <a className="nav-links" href="/EventsList">
-              Events
-            </a>
-          </li>
-          <li>
-            <a className="nav-links" href="/CreateEvent">
-              Create event
-            </a>
-          </li>
-          <li>
-            {currentUser? (
-              <a className="nav-links-mobile" href="/" onClick={this.logOut}>Log Out</a>
-            ) : (
-              <a className="nav-links-mobile" href="/Signup">Sign in</a>
-            )}
-          </li>
-        </ul>
+          <li><a className="nav-links" href="/About">About</a></li>
+          <li><a className="nav-links" href="/Profile">Profile</a></li>
+          <li><a className="nav-links" href="/EventsList">Events</a></li>
+          <li><a className="nav-links" href="/CreateEvent">Create event</a></li>
+          <li><a className="nav-links-mobile" href="/" onClick={this.logOut}>Log Out</a></li>
+        </ul>) : 
+        (<ul className={this.state.clicked ? 'nav-menu active' : 'nav-menu'}>
+          <li><a className="nav-links" href="/About">About</a></li>
+          <li><a className="nav-links" href="/EventsList">Events</a></li>
+          <li><a className="nav-links-mobile" href="/Signup">Sign up</a></li>
+        </ul>)}
         {currentUser ? (
           <Link to="/">
             <button className="btn" id="button" onClick={this.logOut}>Log Out</button>

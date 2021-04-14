@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { BoldLink, BoxContainer, FieldContainer, FieldError, FormContainer, FormError, Input, MutedLink, SubmitButton } from "./common";
+import { BoldLink, BoxContainer, FieldContainer, FieldError, FormContainer, FormError, Input, MutedLink, SubmitButton, FormSuccess } from "./common";
 import { Marginer } from "../marginer";
 import { AccountContext } from "./accountContext";
 import { useFormik } from "formik";
@@ -52,11 +52,10 @@ export function Signup(props) {
         validationSchema: validationSchema,
     });
 
-    console.log("Error: ", formik.errors);
-
     return (
         <BoxContainer>
-            {!success && <FormError>{error ? error : ""}</FormError>}
+            {!success && <FormError>{error ? error : null}</FormError>}
+            {success && <FormSuccess>Conformation email has been sent to you. Please click the link</FormSuccess>}
             <FormContainer onSubmit={formik.handleSubmit}>
                 <FieldContainer>
                     <Input name="name" type="text" placeholder="Full Name" value={formik.values.name} onChange={formik.handleChange} onBlur={formik.handleBlur} />

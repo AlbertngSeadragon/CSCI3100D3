@@ -16,7 +16,7 @@ class Hero extends Component {
     componentDidMount = async () => {
         this.setState({ isLoading: true })
 
-        await api.getAllEvents().then(events => {
+        await api.getTrending().then(events => {
             this.setState({
                 events: events.data.data,
                 isLoading: false,
@@ -25,69 +25,25 @@ class Hero extends Component {
     }
 
     render() {
-        // const { events, isLoading } = this.state
-        // const carousel = events.map(events => 
-        //     <Carousel.Item>
-        //         <Link to="/About">
-        //             <img
-        //             className="d-block"
-        //             style={{width: '100%', height: '300px'}}
-        //             src={events.img}
-        //             alt={events.name}
-        //             />
-        //             <Carousel.Caption>
-        //                 <h3 className="caption">{events.name}</h3>
-        //                 <p className="caption">{events.description}</p>
-        //             </Carousel.Caption>
-        //         </Link>
-        //     </Carousel.Item>);
+        const { events, isLoading } = this.state
+        const carousel = events.map(event => 
+            <Carousel.Item>
+                <Link to="/About">
+                    <img
+                    className="d-block"
+                    style={{width: '100%', height: '300px'}}
+                    src={event.img}
+                    alt={event.eventName}
+                    />
+                    <Carousel.Caption>
+                        <h3 style={{fontSize: '22px'}} className="caption">{event.eventName}</h3>
+                        <p style={{fontSize: '15px'}} className="caption">{event.description}</p>
+                    </Carousel.Caption>
+                </Link>
+            </Carousel.Item>);
         return (
-            // {carousel}
-            <Carousel className="Carousel">
-                <Carousel.Item>
-                    <Link to="./About">
-                        <img
-                        className="d-block"
-                        style={{width: '100%', height: '300px'}}
-                        src="https://www.cpr.cuhk.edu.hk/wp-content/uploads/resource/videoandphoto/photo-02.jpg"
-                        alt="First slide"
-                        />
-                        <Carousel.Caption>
-                            <h3 className="caption">Fist slide</h3>
-                            <p className="caption">Bla bla bla</p>
-                        </Carousel.Caption>
-                    </Link>
-                </Carousel.Item>
-                <Carousel.Item>
-                    <Link to="./About">
-                        <img
-                        className="d-block"
-                        style={{width: '100%', height: '300px'}}
-                        src="https://www.cpr.cuhk.edu.hk/wp-content/uploads/resource/videoandphoto/photo-02.jpg"
-                        alt="Second slide"
-                        />
-
-                        <Carousel.Caption>
-                            <h3 className="caption">Second slide label</h3>
-                            <p className="caption">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </Carousel.Caption>
-                    </Link>
-                </Carousel.Item>
-                <Carousel.Item>
-                    <Link to="./About">
-                        <img
-                        className="d-block"
-                        style={{width: '100%', height: '300px'}}
-                        src="https://www.cpr.cuhk.edu.hk/wp-content/uploads/resource/videoandphoto/photo-03.jpg"
-                        alt="Third slide"
-                        />
-
-                        <Carousel.Caption>
-                            <h3 className="caption">Third slide label</h3>
-                            <p className="caption">Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                        </Carousel.Caption>
-                    </Link>
-                </Carousel.Item>
+            <Carousel className="Carousel" style={{alignItems:'center'}}>
+                {carousel}
             </Carousel>
         );
     }

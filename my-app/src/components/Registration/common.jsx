@@ -88,3 +88,10 @@ export const FormError = styled.span`
     min-height: 20px;
     font-weight: 600;
 `;
+
+export const FormSuccess = styled.span`
+    color: rgb(0, 107, 32);;
+    font-size: 12px;
+    min-height: 20px;
+    font-weight: 600;
+`;

@@ -9,7 +9,7 @@ export const PrivateRoute = ({ component: Component, ...rest }) => {
                 return <Component {...props} />;
             }
             else {
-                return <Redirect to={{ pathname: "/signup", state: { from: props.location } }} />;
+                return <Redirect to={{ pathname: "/Signup", state: { from: props.location } }} />;
             }
         }} />
     );
