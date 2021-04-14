@@ -178,12 +178,11 @@ confirmEmail = (req, res) => {
         else {
             return res.status(200).json({
                 success: true,
-                message: 'email varified successfully',
+                message: 'email verified successfully',
             });
         }
     })
     .catch(err => console.log(err));
-
 }
 
 
