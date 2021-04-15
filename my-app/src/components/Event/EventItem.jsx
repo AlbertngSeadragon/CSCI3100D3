@@ -68,7 +68,7 @@ class EventItem extends Component {
                             <ModalBody>
                                 <Media>
                                     <Media left>
-                                        <Media object src={events.img} style={{ width: '130px', height: '180px', marginRight: '10px' }} alt="Event image" />
+                                        <Media object src={events.img} style={{ width: '130px', height: '100%', marginRight: '10px' }} alt="Event image" />
                                     </Media>
                                     <Media body>
                                         <Table borderless>
@@ -92,6 +92,10 @@ class EventItem extends Component {
                                                 <tr>
                                                     <th scope="row" style={{ width: '30%' }}>Date:</th>
                                                     <td>{events.date.toString().substring(0, 10)}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row" style={{ width: '30%' }}>Location:</th>
+                                                    <td>{events.location}</td>
                                                 </tr>
                                             </tbody>
                                         </Table>
