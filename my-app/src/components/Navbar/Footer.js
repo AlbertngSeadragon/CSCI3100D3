@@ -1,11 +1,11 @@
 import  React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import { AppBar, Container, Grid, Link, Typography } from '@material-ui/core';
+import { AppBar, Grid, Link, Typography } from '@material-ui/core';
 import {Marginer} from '../marginer';
 
 export default() => {
     return(
-        <footer style={{position:'fixed', bottom:'0', width: '100%', marginTop:'50px'}}>
+        <footer style={{position:'fixed', bottom:'0', width: '100%'}}>
             <AppBar style={{backgroundColor:'black', textAlign: 'center'}} position="static">
                 <Grid>
                     <Grid className="footer-links"style={{display:'inline-flex'}}>

@@ -18,14 +18,14 @@ export const MutedLink = styled.a`
     font-size: 12px;
     color: #A9A9A9;
     font-weight: 500;
-    text-decoration: none;
+    text-decoration: none !important;
 `;
 
 export const BoldLink = styled.a`
     font-size: 12px;
     color: #1888ff;
     font-weight: 500;
-    text-decoration: none;
+    text-decoration: none !important;
 `;
 
 export const Input = styled.input`

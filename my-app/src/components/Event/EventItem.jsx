@@ -16,7 +16,6 @@ class EventItem extends Component {
         this.state = {
             currentUser: undefined,
             modal: false,
-            hostName: undefined,
         };
         this.toggle = this.toggle.bind(this);
     }
@@ -29,7 +28,6 @@ class EventItem extends Component {
 
     componentDidMount() {
         const user = AuthService.getCurrentUser();
-
         if (user) {
             this.setState({
                 currentUser: user
@@ -43,24 +41,16 @@ class EventItem extends Component {
         })
     }
 
-    getHostName = async (id) => {
-        await api.getUserById(id).then(res => {
-
-        })
-    }
-
     render() {
         const { events } = this.props;
         const { currentUser } = this.state;
         return (
-            <CardDeck style={{ float: 'left', marginBottom: '3rem', marginLeft: '3.5rem', marginTop: '1rem' }}>
+            <CardDeck style={{ float: 'left', marginBottom: '5rem', marginLeft: '3.5rem', marginTop: '1rem' }}>
                 <Card className='eventItem' style={{ backgroundColor: 'rgb(235, 235, 235)' }}>
-                    <Link to={`/events/${events._id}`}>
-                        <figure className="eventPic">
-                            <img className="eventImg" src={events.img}
-                                alt="Event" />
-                        </figure>
-                    </Link>
+                    <figure className="eventPic">
+                        <img className="eventImg" src={events.img}
+                            alt="Event" />
+                    </figure>
                     <CardHeader title={events.eventName} style={{ padding: '0' }} />
                     <CardContent>
                         <Typography variant="body2" color="textSecondary" component="p" style={{ marginBottom: '10px' }}>
@@ -85,7 +75,7 @@ class EventItem extends Component {
                                             <tbody>
                                                 <tr>
                                                     <th scope="row" style={{ width: '30%' }}>Host:</th>
-                                                    <td>{events.host}</td>
+                                                    <td>{events.hostName}</td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row" style={{ width: '30%' }}>Type:</th>
@@ -99,16 +89,20 @@ class EventItem extends Component {
                                                     <th scope="row" style={{ width: '30%' }}>Description:</th>
                                                     <td>{events.description}</td>
                                                 </tr>
+                                                <tr>
+                                                    <th scope="row" style={{ width: '30%' }}>Date:</th>
+                                                    <td>{events.date.toString().substring(0, 10)}</td>
+                                                </tr>
                                             </tbody>
                                         </Table>
                                     </Media>
                                 </Media>
                                 {currentUser ? (
-                                    <Button size="large" style={{ backgroundColor: "#1888ff", color: "white", width: 'fit-content', display: 'inline-flex' }} variant="contained" onClick={() => this.onJoinClick(events._id)}>
+                                    <Button size="large" style={{ backgroundColor: "#1888ff", color: "white", width: 'fit-content', display: 'inline-flex', justifySelf: 'center' }} variant="contained" onClick={() => this.onJoinClick(events._id)}>
                                         Join
                                     </Button>) : (
                                     <Link to="/Signup" style={{ textDecoration: 'none' }}>
-                                        <Button size="large" style={{ backgroundColor: "#1888ff", color: "white", width: 'fit-content', display: 'inline-flex' }} variant="contained">
+                                        <Button size="large" style={{ backgroundColor: "#1888ff", color: "white", width: 'fit-content', display: 'inline-flex', justifySelf: 'center' }} variant="contained">
                                             Login to Join
                                         </Button>
                                     </Link>

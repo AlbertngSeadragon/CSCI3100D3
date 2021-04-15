@@ -16,7 +16,8 @@ const BoxContainer = styled.div`
     position: relative;
     overflow: hidden;
     margin: auto;
-    margin-top: 70px;
+    margin-top: 20px;
+    margin-bottom: 70px;
 `;
 
 const BackDrop = styled(motion.div)`
@@ -73,7 +74,8 @@ const InnerContainer = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
-    padding: 1.8em;
+    padding: 1em;
+    padding-top: 0;
 `;
 
 const backDropVariants = {
