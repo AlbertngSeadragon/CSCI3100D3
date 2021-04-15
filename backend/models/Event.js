@@ -7,6 +7,10 @@ const Event = new Schema(
             type: Schema.Types.ObjectId,
             ref: 'users'
         },
+        hostName: {
+            type: String,
+            required: true
+        },
         eventName: { 
             type: String, 
             required: true 

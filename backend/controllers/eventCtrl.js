@@ -1,8 +1,12 @@
 const Event = require('../models/Event');
-
+const User = require('../models/User');
 createEvent = (req, res) => {
-    const body = req.body
+    const body = req.body;
     body.host = req.user.id;
+    User.findById(req.user.id, (err, doc) => {
+        if(err) throw err;
+        body.hostName = doc.name;
+    });
     if (!body) {
         return res.status(400).json({
             success: false,
