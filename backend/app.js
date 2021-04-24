@@ -30,11 +30,11 @@ app.use(function (req, res, next) {
     next();
 });
 
-
+// initializing passport authentication strategy
 app.use(passport.initialize());
 require('./config/passport')(passport);
 
-
+// set the api routes for the app
 app.use('/api/events', events);
 app.use('/api/users', users);
 app.use('/api/events/', comments);
