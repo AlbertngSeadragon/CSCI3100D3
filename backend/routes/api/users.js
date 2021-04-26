@@ -4,7 +4,7 @@ const passport = require('passport');
 const UserCtrl = require('../../controllers/userCtrl');
 
 // POST /api/users/register
-// register a new user
+// register a new user (student)
 router.post('/register', UserCtrl.createStudent);
 
 // POST /api/users/adminRegister

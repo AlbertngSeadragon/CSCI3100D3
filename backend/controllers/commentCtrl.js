@@ -1,5 +1,7 @@
 const Event = require('../models/Event');
 
+// POST /api/events/:id/comments
+// add comment to event given by id
 createComment = (req, res) => {
     Event.findById(req.params.id)
         .then(event => {
@@ -19,7 +21,8 @@ createComment = (req, res) => {
         }).catch(err => console.log(err));
 }
 
-
+// DELETE /api/events/:id/comments/:cid
+// delete comment with given cid from event given by id
 deleteComment = (req, res) => {
     Event.findById(req.params.id)
         .then(event => {

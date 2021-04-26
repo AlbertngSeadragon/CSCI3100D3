@@ -1,6 +1,8 @@
 const StudentProfile = require('../models/StudentProfile');
 const AdminProfile = require('../models/AdminProfile');
 
+// GET /api/profile/current
+// fetch the current user profile
 getProfile = (req, res) => {
     if (req.user.role === 'student') {
         StudentProfile.findOne({ student: req.user.id })
@@ -25,6 +27,8 @@ getProfile = (req, res) => {
 
 }
 
+// POST /api/profile/create
+// create a new user profile
 createProfile = (req, res) => {
 
     if (req.user.role === 'student') {
@@ -80,6 +84,8 @@ createProfile = (req, res) => {
 
 }
 
+// GET /api/profile/user/:id
+// fetch the user profile by id
 getProfileById = (req, res) => {
     const errors = {};
 

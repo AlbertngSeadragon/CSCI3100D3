@@ -20,14 +20,15 @@ const smtpTransport = nodemailer.createTransport(smtpTransporter({
     }
 }));
 
-
+// POST /api/users/register
+// register a new user (student)
 createStudent = (req, res) => {
     const errors = {};
     var keyOne=crypto.randomBytes(256).toString('hex').substr(100, 5);
     var keyTwo=crypto.randomBytes(256).toString('base64').substr(50, 5);
     var verificationKey = keyOne + keyTwo;
 
-    User.findOne({ email: req.body.email })
+    User.findOne({ email: req.body.email }) 
         .then(user => {
             if (user) {
                 errors.message = 'Email already exists';
@@ -41,7 +42,6 @@ createStudent = (req, res) => {
                     verificationKey: verificationKey,
                     role: 'student'
                 });
-
                 bcrypt.genSalt(10, (err, salt) => {
                     bcrypt.hash(user.password, salt, (err, hash) => {
                         if (err) throw err;
@@ -49,9 +49,7 @@ createStudent = (req, res) => {
                         user
                             .save()
                             .then(() => {
-                                //url
                                 var url = 'http://' + req.get('host')+'/api/users/confirmEmail'+'?key=' + verificationKey;
-                                //email body
                                 var mailOpt = {
                                     from: keys.email,
                                     to: user.email,
@@ -78,7 +76,8 @@ createStudent = (req, res) => {
         });
 }
 
-
+// POST /api/users/adminRegister
+// register a new admin user (accessible by only admins)
 createAdmin = (req, res) => {
     if (req.user.role === 'admin') {
         const errors = {};
@@ -125,7 +124,8 @@ createAdmin = (req, res) => {
 
 }
 
-
+// POST /api/users/login
+// login the user
 login = (req, res) => {
     const errors = {};
 
@@ -165,11 +165,12 @@ login = (req, res) => {
         });
 }
 
-
+// GET /api/users/confirmEmail?key=${verificationKey}
+// verify the user account with provided verificationKey
 confirmEmail = (req, res) => {
     User.updateOne({verificationKey:req.query.key}, {$set:{emailVerified:true}})
     .then(documents => {
-        if(documents.n = 0){
+        if(documents.n == 0){
             return res.status(400).json({
                 success: false,
                 message: 'verification key not found',
@@ -180,16 +181,13 @@ confirmEmail = (req, res) => {
             res.send(`<h1>UNIVENT<h1>
                       <h2>Email Verified Successfully<h2>
                       <h3><a href=${url}> Click to go back to the homepage</a></h3>`);
-            //return res.status(200).json({
-            //    success: true,
-            //    message: 'email verified successfully',
-            //});
         }
     })
     .catch(err => console.log(err));
 }
 
-
+// GET /api/users/current
+// fetch the current user data
 getCurrentUser = (req, res) => {
     res.json({
         id: req.user.id,
@@ -199,7 +197,8 @@ getCurrentUser = (req, res) => {
     });
 }
 
-
+// GET /api/users/myEvents
+// fetch all the events current user enrolled in
 getUserEvents = async (req, res) => {
     var myEvents = [];
     await Event.find().sort('-createdAt').then(events => {
@@ -218,7 +217,8 @@ getUserEvents = async (req, res) => {
     });
 }
 
-
+// GET /api/users/:id
+// fetch data of user given by id
 getUserById = (req, res) => {
     User.findById(req.params.id)
         .then(user => res.json({

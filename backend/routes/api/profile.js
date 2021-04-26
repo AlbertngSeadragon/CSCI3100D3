@@ -8,7 +8,7 @@ const ProfileCtrl = require('../../controllers/profileCtrl');
 router.get('/current', passport.authenticate('jwt', { session: false }), ProfileCtrl.getProfile);
 
 // POST /api/profile/create
-// create a new profile
+// create a new user profile
 router.post('/create', passport.authenticate('jwt', { session: false }), ProfileCtrl.createProfile);
 
 // GET /api/profile/user/:id

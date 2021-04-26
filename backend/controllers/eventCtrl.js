@@ -1,5 +1,8 @@
 const Event = require('../models/Event');
 const User = require('../models/User');
+
+// POST /api/events
+// create a new event
 createEvent = (req, res) => {
     const body = req.body;
     body.host = req.user.id;
@@ -37,9 +40,9 @@ createEvent = (req, res) => {
         });
 }
 
+// PUT /api/events/:id
+// update event given by id
 updateEvent = async (req, res) => {
-
-
     const body = req.body
     if (!body) {
         return res.status(400).json({
@@ -86,6 +89,8 @@ updateEvent = async (req, res) => {
     })
 }
 
+// DELETE /api/events/:id
+// delete event given by id
 deleteEvent = async (req, res) => {
     await Event.findOne({ _id: req.params.id }, (err, event) => {
         if (err) {
@@ -109,6 +114,8 @@ deleteEvent = async (req, res) => {
     }).catch(err => console.log(err));
 }
 
+// GET /api/events/:id
+// fetch an event given by id
 getEventById = async (req, res) => {
     await Event.findOne({ _id: req.params.id }, (err, event) => {
         if (err) {
@@ -124,6 +131,9 @@ getEventById = async (req, res) => {
     }).catch(err => console.log(err));
 }
 
+// GET /api/events/
+// or /api/events?eventType=${type}
+// fetch all events or events given by type
 getEvents = async (req, res) => {
     await Event.find(req.query.eventType ? {eventType: req.query.eventType} : {}).sort('-createdAt').then(events => {
         if (!events) {
@@ -138,6 +148,8 @@ getEvents = async (req, res) => {
     }).catch(err => console.log(err));
 }
 
+// PUT /api/events/:id/join
+// add participant to the event given by id
 joinEvent = (req, res) => {
     Event.findById(req.params.id)
         .then(event => {
@@ -177,6 +189,8 @@ joinEvent = (req, res) => {
         .catch(err => console.log(err));
 }
 
+// GET /api/events/trending
+// fetch top three trending events (trending defined by number of participants in event)
 getTrending = (req, res) => {
     Event.find().sort('-numOfParticipants').limit(3).exec((err, result) => {
         if(err) return res.status(400).json({ success: false, error: err })
