@@ -1,3 +1,4 @@
+//Refrence from best_flutter_ui_templates
 import 'package:best_flutter_ui_templates/design_course/design_course_app_theme.dart';
 import 'package:best_flutter_ui_templates/design_course/models/category.dart';
 import 'package:best_flutter_ui_templates/main.dart';
@@ -10,7 +11,7 @@ class CategoryListView extends StatefulWidget {
   @override
   _CategoryListViewState createState() => _CategoryListViewState();
 }
-
+//Extend for the catory list to show in the main page
 class _CategoryListViewState extends State<CategoryListView>
     with TickerProviderStateMixin {
   AnimationController animationController;
