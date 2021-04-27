@@ -3,7 +3,7 @@ import 'package:best_flutter_ui_templates/design_course/design_course_app_theme.
 import 'package:flutter/material.dart';
 import 'package:flutter_dialogflow/dialogflow_v2.dart';
 import 'package:flutter_tts/flutter_tts.dart';
-
+//Enable the text to speach function
 final FlutterTts flutterTts = new FlutterTts();
 
 class HomePageDialogflow extends StatefulWidget {
@@ -18,7 +18,7 @@ class HomePageDialogflow extends StatefulWidget {
 class _HomePageDialogflow extends State<HomePageDialogflow> {
   final List<ChatMessage> _messages = <ChatMessage>[];
   final TextEditingController _textController = new TextEditingController();
-
+//Generate the text box for typing
   Widget _buildTextComposer() {
     return new IconTheme(
       data: new IconThemeData(color: Theme.of(context).accentColor),
@@ -47,7 +47,7 @@ class _HomePageDialogflow extends State<HomePageDialogflow> {
       ),
     );
   }
-
+//Recive the data from thte dialogflow api and turn on the tts for response in voice and text
   void Response(query) async {
     _textController.clear();
     AuthGoogle authGoogle =
@@ -82,7 +82,7 @@ class _HomePageDialogflow extends State<HomePageDialogflow> {
     });
     Response(text);
   }
-
+//UI design seting the container , color
   @override
   Widget build(BuildContext context) {
     return new Scaffold(

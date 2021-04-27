@@ -5,7 +5,7 @@ class CourseInfoScreen extends StatefulWidget {
   @override
   _CourseInfoScreenState createState() => _CourseInfoScreenState();
 }
-
+//Designed the course info for people to sumbit the reflection
 class _CourseInfoScreenState extends State<CourseInfoScreen>
     with TickerProviderStateMixin {
   final double infoHeight = 364.0;

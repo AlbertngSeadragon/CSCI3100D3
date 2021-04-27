@@ -1,3 +1,7 @@
+//Refrence from best_flutter_ui_templates
+//
+// Generated file do not edit
+//
 import 'package:best_flutter_ui_templates/design_course/design_course_app_theme.dart';
 import 'package:best_flutter_ui_templates/design_course/models/category.dart';
 import 'package:best_flutter_ui_templates/main.dart';

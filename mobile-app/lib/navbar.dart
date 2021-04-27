@@ -10,11 +10,14 @@ import 'package:best_flutter_ui_templates/design_course/programs.dart';
 import 'invite_friend_screen.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
+
+//Nav Bar is referece from the library of the best_flutter_ui_templates
 class NavBar extends StatefulWidget {
   @override
   _NavBarState createState() => _NavBarState();
 }
 
+//It is able to dynamyic  addign different page in ascending order
 class _NavBarState extends State<NavBar> {
   final _pageoption = [
     DesignCourseHomeScreen(),
@@ -25,6 +28,7 @@ class _NavBarState extends State<NavBar> {
     HomePageDialogflow(),
   ];
 
+  //It create the logic of nav bar like moving to different page
   int _selectedIndex = 0;
   int choice = 0;
   @override
@@ -47,6 +51,7 @@ class _NavBarState extends State<NavBar> {
             child: _pageoption[choice]),
       ),
 
+      //It create the UI like the icon of nav bar like moving to different page
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         selectedItemColor: DesignCourseAppTheme.nearlyBlue,

@@ -1,19 +1,15 @@
-import 'package:best_flutter_ui_templates/design_course/category_list_view.dart';
-import 'package:best_flutter_ui_templates/design_course/course_info_screen.dart';
-import 'package:best_flutter_ui_templates/design_course/popular_course_list_view.dart';
-import 'package:best_flutter_ui_templates/design_course/programs.dart';
+// Reference form best_flutter_ui_templates library
 import 'package:best_flutter_ui_templates/design_course/home_design_course.dart';
-import 'package:best_flutter_ui_templates/main.dart';
 import 'package:flutter/material.dart';
 import 'design_course_app_theme.dart';
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:circular_profile_avatar/circular_profile_avatar.dart';
 
 class Profile extends StatefulWidget {
   @override
   _ProfileState createState() => _ProfileState();
 }
 
+
+//Design the Profile Page rating bar
 class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {

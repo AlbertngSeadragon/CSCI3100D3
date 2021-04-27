@@ -1,7 +1,3 @@
-import 'package:best_flutter_ui_templates/design_course/category_list_view.dart';
-import 'package:best_flutter_ui_templates/design_course/course_info_screen.dart';
-import 'package:best_flutter_ui_templates/design_course/popular_course_list_view.dart';
-import 'package:best_flutter_ui_templates/main.dart';
 import 'package:flutter/material.dart';
 import 'design_course_app_theme.dart';
 
@@ -10,6 +6,7 @@ class Forum extends StatefulWidget {
   _ForumState createState() => _ForumState();
 }
 
+//Designed the course for the polling and sumbit button
 class _ForumState extends State<Forum> {
   bool val_1 = false;
   bool val_2 = false;

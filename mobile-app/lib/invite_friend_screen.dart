@@ -1,3 +1,4 @@
+//Reference fromt the best_flutter_ui_templates
 import 'package:best_flutter_ui_templates/app_theme.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +12,7 @@ class _InviteFriendState extends State<InviteFriend> {
   void initState() {
     super.initState();
   }
-
+//Set the wideget and text box and
   @override
   Widget build(BuildContext context) {
     return Container(

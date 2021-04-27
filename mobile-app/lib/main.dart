@@ -1,4 +1,5 @@
 // Reference Import the best_flutter_ui template
+// This Page is generate by the flutter framework itself
 
 import 'dart:io';
 import 'package:best_flutter_ui_templates/app_theme.dart';

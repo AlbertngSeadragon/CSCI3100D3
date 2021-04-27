@@ -1,3 +1,4 @@
+//Reference fromt eh best best-beautiful UI
 class Category {
   Category({
     this.title = '',
@@ -12,7 +13,7 @@ class Category {
   String date;
   double rating;
   String imagePath;
-
+//Generate from the list of the catorgey for the event
   static List<Category> categoryList = <Category>[
     Category(
       imagePath: 'assets/design_course/i01_LWS.png',

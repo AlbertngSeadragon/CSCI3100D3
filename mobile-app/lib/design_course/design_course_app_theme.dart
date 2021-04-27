@@ -1,3 +1,4 @@
+//Generate the theme
 import 'package:flutter/material.dart';
 
 class DesignCourseAppTheme {
