@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ChartType } from 'chart.js';
 import { Label, MultiDataSet } from 'ng2-charts';
 import { GetdatabaseapiService } from '../../getdatabaseapi.service';
-
+//Get back the API from getdatbaseAPI
 @Component({
   selector: 'app-catergory-doughnut-chart',
   templateUrl: './catergory-doughnut-chart.component.html',
@@ -16,6 +16,7 @@ export class CatergoryDoughnutChartComponent implements OnInit {
 
   constructor(private readonly apiService: GetdatabaseapiService) { }
 
+  //testing
   // getdata(){
   //   let body = {
   //     "year": 2020,

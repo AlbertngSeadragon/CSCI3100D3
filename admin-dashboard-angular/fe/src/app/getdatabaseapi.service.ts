@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http'
 import { map } from 'rxjs/operators';
 
 
-
+// API end pot for the event register to get the api and past to the chart
 @Injectable({
   providedIn: 'root'
 })
@@ -16,17 +16,6 @@ export class GetdatabaseapiService {
   private api = 'http://34.207.154.183/getchartdata'
   constructor(private http: HttpClient) { }
 
-  // getdata(){
-  //   let body = {
-  //     "year": 2020,
-  //     "month": "9",
-  //     "day": "11"
-  //   };
-
-  //   this.http.post<any>(this.api, body).subscribe(res => {
-  //     console.log(res);
-  //   })
-  // }
   PostMessage(input: any) {
     return this.http.post<any>(this.api, input).pipe(
       map(

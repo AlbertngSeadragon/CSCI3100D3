@@ -3,7 +3,7 @@ from flask import Flask, request, render_template
 
 app = Flask(__name__)
 
-
+# Flask for the fe to past data POST method API
 @app.route("/getchartdata", methods=['GET', 'POST'])
 @cross_origin()
 def submit():

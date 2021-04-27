@@ -1,3 +1,5 @@
+//Import all the module
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ChartsModule } from 'ng2-charts';
@@ -26,8 +28,8 @@ import { CatergoryDoughnutChartComponent } from './charts/catergory-doughnut-cha
 import { DatinputformComponent } from './datinputform/datinputform.component';
 import { GetdatabaseapiService } from './getdatabaseapi.service'
 import { ReactiveFormsModule } from '@angular/forms';
-import { SeoBarChartComponent } from './charts/seo-bar-chart/seo-bar-chart.component';
-import { NonseoBarChartComponent } from './charts/nonseo-bar-chart/nonseo-bar-chart.component'; 
+import { SeoBarChartComponent } from './charts/vp-bar-chart/vp-bar-chart.component';
+import { NonvpBarChartComponent } from './charts/nonvp-bar-chart/nonvp-bar-chart.component'; 
 
 @NgModule({
   declarations: [
@@ -41,7 +43,7 @@ import { NonseoBarChartComponent } from './charts/nonseo-bar-chart/nonseo-bar-ch
     CatergoryDoughnutChartComponent,
     DatinputformComponent,
     SeoBarChartComponent,
-    NonseoBarChartComponent
+    NonvpBarChartComponent
   ],
   imports: [
     BrowserModule,

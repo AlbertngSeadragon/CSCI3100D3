@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { GetdatabaseapiService } from '../getdatabaseapi.service';
 import { interval, Subscription } from 'rxjs';
-
+//Set the date form picker for query
 @Component({
   selector: 'app-datinputform',
   templateUrl: './datinputform.component.html',

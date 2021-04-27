@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 
-
+// Desihn the column and ow for the chart
 @Component({
   selector: 'app-dash',
   templateUrl: './dash.component.html',

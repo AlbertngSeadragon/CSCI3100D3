@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SeoBarChartComponent } from './seo-bar-chart.component';
+import { NonvpBarChartComponent } from './nonvp-bar-chart.component';
 
-describe('SeoBarChartComponent', () => {
-  let component: SeoBarChartComponent;
-  let fixture: ComponentFixture<SeoBarChartComponent>;
+describe('NonvpBarChartComponent', () => {
+  let component: NonvpBarChartComponent;
+  let fixture: ComponentFixture<NonvpBarChartComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SeoBarChartComponent ]
+      declarations: [ NonvpBarChartComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SeoBarChartComponent);
+    fixture = TestBed.createComponent(NonvpBarChartComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

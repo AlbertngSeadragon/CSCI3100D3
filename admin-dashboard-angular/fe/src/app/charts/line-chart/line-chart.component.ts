@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
 import { Label } from 'ng2-charts';
-
+//Get back the API from getdatbaseAPI
 @Component({
   selector: 'app-line-chart',
   templateUrl: './line-chart.component.html',

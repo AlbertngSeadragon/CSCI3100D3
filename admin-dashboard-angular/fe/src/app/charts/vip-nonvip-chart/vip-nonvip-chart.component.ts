@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ChartOptions, ChartType } from 'chart.js';
 import { Label, SingleDataSet } from 'ng2-charts';
 import { GetdatabaseapiService } from '../../getdatabaseapi.service';
-
+//Get back the API from getdatbaseAPI
 @Component({
   selector: 'app-vip-nonvip-chart',
   templateUrl: './vip-nonvip-chart.component.html',

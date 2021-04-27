@@ -3,12 +3,13 @@ import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
 import { Label } from 'ng2-charts';
 import { GetdatabaseapiService } from '../../getdatabaseapi.service';
 
+//Get back the API from getdatbaseAPI
 @Component({
-  selector: 'app-nonseo-bar-chart',
-  templateUrl: './nonseo-bar-chart.component.html',
-  styleUrls: ['./nonseo-bar-chart.component.scss']
+  selector: 'app-vp-bar-chart',
+  templateUrl: './vp-bar-chart.component.html',
+  styleUrls: ['./vp-bar-chart.component.scss']
 })
-export class NonseoBarChartComponent implements OnInit {
+export class SeoBarChartComponent implements OnInit {
 
   public barChartOptions: ChartOptions = {
     responsive: true,
@@ -19,7 +20,7 @@ export class NonseoBarChartComponent implements OnInit {
   public barChartPlugins = [];
 
   public barChartData: ChartDataSets[] = [
-    { data: [], label: 'Name Event Month' },
+    { data: [], label: 'Name Event Year' },
   ];
   public barChartColors: Array<any> = [{
     backgroundColor: [],
@@ -32,10 +33,10 @@ export class NonseoBarChartComponent implements OnInit {
       //console.log("From the api to chart", data)
       this.barChartLabels = [];
       this.barChartData[0].data = [];
-      data.Month.forEach(item => {
+      data.Year.forEach(item => {
         this.barChartLabels.push(item[0].trim());
         this.barChartData[0].data.push(item[1]);
-        this.barChartColors[0].backgroundColor.push('blue')
+        this.barChartColors[0].backgroundColor.push('green')
       })
       // console.log("catory:  ", this.pieChartLabels)
       // console.log("catory number:  ", this.pieChartData)

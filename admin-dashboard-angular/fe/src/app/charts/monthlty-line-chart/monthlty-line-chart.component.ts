@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
 import { Color, Label } from 'ng2-charts';
 import { GetdatabaseapiService } from '../../getdatabaseapi.service';
-
+//Get back the API from getdatbaseAPI
 @Component({
   selector: 'app-monthlty-line-chart',
   templateUrl: './monthlty-line-chart.component.html',
