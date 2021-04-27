@@ -8,7 +8,7 @@
 // have to load a single css file for Angular Material in your app.
 
 // Fonts
-@import 'https://fonts.googleapis.com/css?family=Material+Icons+Outlined';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons';
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
      
 $fontConfig: (
@@ -30,7 +30,7 @@ $fontConfig: (
 // Foreground Elements
 
 // Light Theme Text
-$dark-text: #af2b2b;
+$dark-text: #000000;
 $dark-primary-text: rgba($dark-text, 0.87);
 $dark-accent-text: rgba($dark-primary-text, 0.54);
 $dark-disabled-text: rgba($dark-primary-text, 0.38);
@@ -57,7 +57,7 @@ $mat-light-theme-foreground: (
 );
 
 // Dark Theme text
-$light-text: #3f2424;
+$light-text: #ffffff;
 $light-primary-text: $light-text;
 $light-accent-text: rgba($light-primary-text, 0.7);
 $light-disabled-text: rgba($light-primary-text, 0.5);
@@ -85,15 +85,15 @@ $mat-dark-theme-foreground: (
 
 // Background config
 // Light bg
-$light-background:    #efdede;
+$light-background:    #fafafa;
 $light-bg-darker-5:   darken($light-background, 5%);
 $light-bg-darker-10:  darken($light-background, 10%);
 $light-bg-darker-20:  darken($light-background, 20%);
 $light-bg-darker-30:  darken($light-background, 30%);
 $light-bg-lighter-5:  lighten($light-background, 5%);
-$dark-bg-tooltip:     lighten(#697fa1, 20%);
-$dark-bg-alpha-4:     rgba(#697fa1, 0.04);
-$dark-bg-alpha-12:    rgba(#697fa1, 0.12);
+$dark-bg-tooltip:     lighten(#2c2c2c, 20%);
+$dark-bg-alpha-4:     rgba(#2c2c2c, 0.04);
+$dark-bg-alpha-12:    rgba(#2c2c2c, 0.12);
 
 $mat-light-theme-background: (
   background:               $light-background,
@@ -114,13 +114,13 @@ $mat-light-theme-background: (
 );
 
 // Dark bg
-$dark-background:     #697fa1;
+$dark-background:     #2c2c2c;
 $dark-bg-lighter-5:   lighten($dark-background, 5%);
 $dark-bg-lighter-10:  lighten($dark-background, 10%);
 $dark-bg-lighter-20:  lighten($dark-background, 20%);
 $dark-bg-lighter-30:  lighten($dark-background, 30%);
-$light-bg-alpha-4:    rgba(#efdede, 0.04);
-$light-bg-alpha-12:   rgba(#efdede, 0.12);
+$light-bg-alpha-4:    rgba(#fafafa, 0.04);
+$light-bg-alpha-12:   rgba(#fafafa, 0.12);
 
 // Background palette for dark themes.
 $mat-dark-theme-background: (
@@ -147,19 +147,19 @@ $mat-dark-theme-background: (
 // Theme Config
 
 body {
-  --primary-color: #4650f9;
-  --primary-lighter-color: #c8cbfd;
-  --primary-darker-color: #2f37f6;
+  --primary-color: #312a31;
+  --primary-lighter-color: #c1bfc1;
+  --primary-darker-color: #1f191f;
   --text-primary-color: #{$light-primary-text};
   --text-primary-lighter-color: #{$dark-primary-text};
   --text-primary-darker-color: #{$light-primary-text};
 }
 
 $mat-primary: (
-  main: #4650f9,
-  lighter: #c8cbfd,
-  darker: #2f37f6,
-  200: #4650f9, // For slide toggle,
+  main: #312a31,
+  lighter: #c1bfc1,
+  darker: #1f191f,
+  200: #312a31, // For slide toggle,
   contrast : (
     main: $light-primary-text,
     lighter: $dark-primary-text,
@@ -169,19 +169,19 @@ $mat-primary: (
 $theme-primary: mat-palette($mat-primary, main, lighter, darker);
 
 body {
-  --accent-color: #9836a5;
-  --accent-lighter-color: #e0c3e4;
-  --accent-darker-color: #7b228a;
+  --accent-color: #797979;
+  --accent-lighter-color: #d7d7d7;
+  --accent-darker-color: #5c5c5c;
   --text-accent-color: #{$light-primary-text};
   --text-accent-lighter-color: #{$dark-primary-text};
   --text-accent-darker-color: #{$light-primary-text};
 }
 
 $mat-accent: (
-  main: #9836a5,
-  lighter: #e0c3e4,
-  darker: #7b228a,
-  200: #9836a5, // For slide toggle,
+  main: #797979,
+  lighter: #d7d7d7,
+  darker: #5c5c5c,
+  200: #797979, // For slide toggle,
   contrast : (
     main: $light-primary-text,
     lighter: $dark-primary-text,
@@ -212,8 +212,8 @@ $mat-warn: (
 );
 $theme-warn: mat-palette($mat-warn, main, lighter, darker);;
 
-$theme: mat-dark-theme($theme-primary, $theme-accent, $theme-warn);
-$altTheme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
+$theme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
+$altTheme: mat-dark-theme($theme-primary, $theme-accent, $theme-warn);
 
 // Theme Init
 @include angular-material-theme($theme);
@@ -239,7 +239,7 @@ $altTheme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
 
 .material-icons {
   font-size: 24px;
-  font-family: 'Material Icons Outlined', 'Material Icons';  
+  font-family: 'Material Icons', 'Material Icons';  
   .mat-badge-content {
     font-family: 'Roboto';
   }
