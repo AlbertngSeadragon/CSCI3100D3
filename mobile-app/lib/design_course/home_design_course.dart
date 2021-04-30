@@ -93,6 +93,7 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> {
     );
   }
 
+//Create the widget
   Widget getCategoryUI() {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,

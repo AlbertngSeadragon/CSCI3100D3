@@ -17,7 +17,7 @@ class NavBar extends StatefulWidget {
   _NavBarState createState() => _NavBarState();
 }
 
-//It is able to dynamyic  addign different page in ascending order
+//It is able to dynamyic adding different page in ascending order
 class _NavBarState extends State<NavBar> {
   final _pageoption = [
     DesignCourseHomeScreen(),

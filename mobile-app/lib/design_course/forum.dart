@@ -12,6 +12,7 @@ class _ForumState extends State<Forum> {
   bool val_2 = false;
   bool val_3 = false;
 
+//Sho the content info by creating the widget tgar can be seen in the action content
   void _showcontent() {
     showDialog(
       context: context, barrierDismissible: false, // user must tap button!

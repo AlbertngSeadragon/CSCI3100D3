@@ -1,3 +1,4 @@
+//Name of the module 
 import { Component } from '@angular/core';
 
 @Component({
@@ -5,6 +6,8 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+
+//Export to use
 export class AppComponent {
   title = 'Univent-fe';
 }

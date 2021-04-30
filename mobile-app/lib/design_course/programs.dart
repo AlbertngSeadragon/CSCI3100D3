@@ -21,6 +21,7 @@ class _ProgramState extends State<Program> {
   }
 
   @override
+  // Create the widget for the container to store int the event name so it can be completely different base on different event
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(

@@ -41,6 +41,7 @@ class _CourseInfoScreenState extends State<CourseInfoScreen>
     });
   }
 
+// This part is to display the point that you have sumbitted the reflection
 void _showcontent() {
     showDialog(
       context: context, barrierDismissible: false, // user must tap button!
@@ -69,7 +70,7 @@ void _showcontent() {
   }
 
 
-
+// CSS that contain the componenet position and color
   @override
   Widget build(BuildContext context) {
     final double tempHeight = MediaQuery.of(context).size.height -

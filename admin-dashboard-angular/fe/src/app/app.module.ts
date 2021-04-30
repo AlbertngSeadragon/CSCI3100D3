@@ -1,5 +1,4 @@
-//Import all the module
-
+//Implemenation use so it is the "is composed of" Import all the module 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ChartsModule } from 'ng2-charts';
@@ -31,6 +30,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SeoBarChartComponent } from './charts/vp-bar-chart/vp-bar-chart.component';
 import { NonvpBarChartComponent } from './charts/nonvp-bar-chart/nonvp-bar-chart.component'; 
 
+
+//Delcare more specifly in Anular format
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,7 +64,7 @@ import { NonvpBarChartComponent } from './charts/nonvp-bar-chart/nonvp-bar-chart
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [GetdatabaseapiService],
+  providers: [GetdatabaseapiService], // this allow the user directly call the providewith out using a dot xx function
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
   

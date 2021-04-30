@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
-//Generated Nav bar
+
+//Logic for the nav bar so it can display the data
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',

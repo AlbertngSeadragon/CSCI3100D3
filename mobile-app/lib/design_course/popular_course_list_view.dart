@@ -7,6 +7,8 @@ import 'package:best_flutter_ui_templates/design_course/models/category.dart';
 import 'package:best_flutter_ui_templates/main.dart';
 import 'package:flutter/material.dart';
 
+
+// This create the class of popluar event list so it can embed witht eh catorey list view .dart
 class PopularCourseListView extends StatefulWidget {
   const PopularCourseListView({Key key, this.callBack}) : super(key: key);
 
@@ -15,6 +17,7 @@ class PopularCourseListView extends StatefulWidget {
   _PopularCourseListViewState createState() => _PopularCourseListViewState();
 }
 
+// Create the widgent class
 class _PopularCourseListViewState extends State<PopularCourseListView>
     with TickerProviderStateMixin {
   AnimationController animationController;
@@ -30,6 +33,7 @@ class _PopularCourseListViewState extends State<PopularCourseListView>
     return true;
   }
 
+// Create the widgent class for build up the UI like the animation
   @override
   Widget build(BuildContext context) {
     return Padding(

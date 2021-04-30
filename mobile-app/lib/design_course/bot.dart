@@ -110,6 +110,7 @@ class _HomePageDialogflow extends State<HomePageDialogflow> {
   }
 }
 
+//Chat CSS like tht position and the color, icon
 class ChatMessage extends StatelessWidget {
   ChatMessage({this.text, this.name, this.type});
 

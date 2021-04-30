@@ -19,6 +19,7 @@ class _InviteFriendState extends State<InviteFriend> {
       color: AppTheme.nearlyWhite,
       child: SafeArea(
         top: false,
+        // under each child it will have it own CSS style
         child: Scaffold(
           backgroundColor: AppTheme.nearlyWhite,
           body: Column(

@@ -10,12 +10,14 @@ import { map } from 'rxjs/operators';
 })
 export class GetdatabaseapiService {
 
+  // get the Shared data using the HTTP event emitter so it allow the other module to use the data
   $shared = new EventEmitter();
   sharedData
 
   private api = 'http://34.207.154.183/getchartdata'
   constructor(private http: HttpClient) { }
 
+  // Post request it need to use the MAP function to get the input for shared DATA to map the response
   PostMessage(input: any) {
     return this.http.post<any>(this.api, input).pipe(
       map(

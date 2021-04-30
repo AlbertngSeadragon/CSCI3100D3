@@ -1,15 +1,21 @@
+# reference from https://flask.palletsprojects.com/en/1.1.x/
+
+#implemation is_compose_of
 from flask_cors import cross_origin
 from flask import Flask, request, render_template
+
 
 app = Flask(__name__)
 
 # Flask for the fe to past data POST method API
 @app.route("/getchartdata", methods=['GET', 'POST'])
+# This is use for the cross origin otherwise it can not depolyed on the same local machine
 @cross_origin()
+#module name for the main to call
 def submit():
     if request.method == 'POST':
         #json_data = request.json
-        request_data = request.json
+        request_data = request.json # covert the json data to python string 
 
         return {
             "Linechartyearshowmonth": [
