@@ -6,19 +6,16 @@ You can use mobile app and web app as you like.
 
 Web:
 
+<img src="https://github.com/AlbertngSeadragon/CSCI3100D3/blob/main/Picture%202.png" width="500" height="500">
+
 Mobile:
 
-<img src="https://github.com/AlbertngSeadragon/CSCI3100D3/blob/main/Mobile%20Home%20Page.png" width="250" height="500">
+<img src="https://github.com/AlbertngSeadragon/CSCI3100D3/blob/main/Picture%201.png" width="250" height="500">
 
 <img src="https://github.com/AlbertngSeadragon/CSCI3100D3/blob/main/Mobile%20Icon.png" width="250" height="250">
 
-<img src="https://github.com/AlbertngSeadragon/CSCI3100D3/blob/main/Simulator%20Screen%20Shot%20-%20iPhone%2012%20Pro%20Max%20-%202021-03-18%20at%2016.37.53.png" width="250" height="500">
+<img src="https://github.com/AlbertngSeadragon/CSCI3100D3/blob/main/Picture%203.png" width="250" height="500">
 
-<img src="https://github.com/AlbertngSeadragon/CSCI3100D3/blob/main/Simulator%20Screen%20Shot%20-%20iPhone%2012%20Pro%20Max%20-%202021-03-18%20at%2016.38.03.png " width="250" height="500">
-
-<img src="https://github.com/AlbertngSeadragon/CSCI3100D3/blob/main/Simulator%20Screen%20Shot%20-%20iPhone%2012%20Pro%20Max%20-%202021-03-18%20at%2016.38.10.png" width="250" height="500">
-
-<img src="https://github.com/AlbertngSeadragon/CSCI3100D3/blob/main/Simulator%20Screen%20Shot%20-%20iPhone%2012%20Pro%20Max%20-%202021-03-18%20at%2016.38.33.png " width="250" height="500">
 
 ## Web app
 
