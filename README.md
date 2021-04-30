@@ -14,7 +14,7 @@ Main Page
 
 Main Page IOS and Android
 
-<img src="https://github.com/AlbertngSeadragon/CSCI3100D3/blob/main/Picture%201.png" width="700" height="500">
+<img src="https://github.com/AlbertngSeadragon/CSCI3100D3/blob/main/Picture%201.png" width="700" height="600">
 
 Icon
 
