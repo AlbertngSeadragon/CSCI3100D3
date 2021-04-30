@@ -7,17 +7,21 @@ You can use mobile app and web app as you like.
 #Web:
 
 Main Page
+
 <img src="https://github.com/AlbertngSeadragon/CSCI3100D3/blob/main/Picture%202.png" width="1000" height="500">
 
 #Mobile:
 
 Main Page IOS and Android
+
 <img src="https://github.com/AlbertngSeadragon/CSCI3100D3/blob/main/Picture%201.png" width="700" height="500">
 
-Icon:
+Icon
+
 <img src="https://github.com/AlbertngSeadragon/CSCI3100D3/blob/main/Mobile%20Icon.png" width="250" height="250">
 
 Highlight Chatbot
+
 <img src="https://github.com/AlbertngSeadragon/CSCI3100D3/blob/main/Picture%203.png" width="250" height="500">
 
 
