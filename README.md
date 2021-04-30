@@ -6,11 +6,11 @@ You can use mobile app and web app as you like.
 
 Web:
 
-<img src="https://github.com/AlbertngSeadragon/CSCI3100D3/blob/main/Picture%202.png" width="500" height="500">
+<img src="https://github.com/AlbertngSeadragon/CSCI3100D3/blob/main/Picture%202.png" width="1000" height="500">
 
 Mobile:
 
-<img src="https://github.com/AlbertngSeadragon/CSCI3100D3/blob/main/Picture%201.png" width="250" height="500">
+<img src="https://github.com/AlbertngSeadragon/CSCI3100D3/blob/main/Picture%201.png" width="1050" height="500">
 
 <img src="https://github.com/AlbertngSeadragon/CSCI3100D3/blob/main/Mobile%20Icon.png" width="250" height="250">
 
