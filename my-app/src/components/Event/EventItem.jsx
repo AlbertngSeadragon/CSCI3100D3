@@ -34,7 +34,7 @@ class EventItem extends Component {
             });
         }
     }
-
+    //use api.joinEvent function to handle event join
     onJoinClick = async (id) => {
         await api.joinEvent(id).then(res => {
             window.alert(`You have joined to the event`)

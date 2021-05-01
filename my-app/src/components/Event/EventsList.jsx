@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import api from '../api'
 import EventItem from './EventItem.jsx';
 
+//function to get type of the event from url
 function getParameterByName(url = window.location.href) {
     var i = url.length - 1;
     var n = '';
@@ -26,6 +27,7 @@ class EventsList extends Component {
         var type = getParameterByName();
         console.log(type);
 
+        //check if there any specific type of event required. If not return all events. If so return events of that type
         if (type.match("EventsList")) {
 
             this.setState({ isLoading: true })

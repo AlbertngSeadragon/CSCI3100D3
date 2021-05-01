@@ -15,6 +15,7 @@ import Footer from './components/Navbar/Footer';
 class App extends Component {
   render(){  
     return (
+      //Rendering all pages using React Router
       <Router>
         <div className="App">
           <Navbar />
